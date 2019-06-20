@@ -6,7 +6,7 @@ function App() {
  return (
    <div className="App">
      <header className="App-header">
-       <img src='https://previews.123rf.com/images/surreal66/surreal661801/surreal66180100038/92616069-cute-kitty-head-hand-drawn-illustration-cat-face-with-long-whiskers-isolated-on-white-background-.jpg' className="App-logo" alt="logo" />
+       <img src='https://cdn.shopify.com/s/files/1/0208/8432/products/print_cat_face_1024x1024.png?v=1532459134' className="App-logo" alt="logo" />
        <p>
          Edit <code>src/App.js</code> and save to reload.
        </p>
