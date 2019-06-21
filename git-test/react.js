@@ -11,8 +11,9 @@ function App() {
        <img src='https://cdn.shopify.com/s/files/1/0208/8432/products/print_cat_face_1024x1024.png?v=1532459134' className="App-logo" alt="logo" />
        
        <p>
-         Edit <code>src/App.js</code> and save to reload.
+         Bam! Deleted
        </p>
+      
        <a
          className="App-link"
          href="https://reactjs.org"
