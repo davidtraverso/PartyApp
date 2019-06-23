@@ -40,25 +40,20 @@ class PartyLocation extends Component {
                             </h5>
                         </Container>
                     </Paper>
-                    <br/>
-                    <Button 
-                      variant="contained"
-                      color="default"
-                      label="Continue"
-                      primary={true}
+                    
+                    {/* Navigation Buttons */}
+                    <input
+                      type="button"
+                      label="Back"
+                      value="Back"
                       onClick={this.back}
-                    >
-                        Back
-                    </Button>
-                    <Button 
-                      variant="contained"
-                      color="primary"
+                    />
+                    <input
+                      type="button"
                       label="Continue"
-                      primary={true}
+                      value="Continue"
                       onClick={this.continue}
-                    >
-                        Continue
-                    </Button>
+                    />
                 </Container>
             </div>
         );

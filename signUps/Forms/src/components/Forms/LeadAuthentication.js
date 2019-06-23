@@ -28,45 +28,40 @@ class LeadAuthentication extends Component {
                         <Container maxWidth="sm">
                         <h3>Alright {values.uName}, let's create your account and get the party planning started!:'</h3>
                         <p>Your email:</p>
-                        <TextField
+                        <input type="email"
                           onChange={handleChange('uEmail')}
-                          defaultValue={values.uEmail}
+                          value={values.uEmail}
+                          placeholder={values.uEmail}
                           disabled="true"
                          />
                         <br/>
                         <p>Your password:</p>
-                        <TextField
+                        <input type="password"
                           onChange={handleChange('uPassword')}
                           defaultValue={values.uPassword}
                          />
                         <br/>
                         <p>Confirm password:</p>
-                        <TextField
+                        <input type="password"
                           defaultValue={values.uPassword}
                          />
                         <br/><br/>
-                        <Button
-                          variant="extended"
-                          size="large"
-                          color="secondary"
+                        <input type="button"
+                          value="Create your Party!"
                           onClick={this.continue}
-                        >
-                        CREATE YOUR PARTY!
-                        </Button>
+                        />
                         <br/>
                         <br/>
                       </Container>  
                     </Paper>
                     <br/>
-                    <Button 
-                      variant="contained"
-                      color="default"
+                    {/* Navigation Buttons */}
+                    <input
+                      type="button"
                       label="Back"
-                      primary={true}
+                      value="Back"
                       onClick={this.back}
-                    >
-                        Back
-                    </Button>
+                    />
                 </Container>
             </div>
         );

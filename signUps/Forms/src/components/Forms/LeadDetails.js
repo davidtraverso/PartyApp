@@ -28,19 +28,19 @@ class LeadDetails extends Component {
                         <Container maxWidth="sm">
                         <h3>Tell us about yourself:</h3>
                         <p>Your name:</p>
-                        <TextField
+                        <input type="text"
                           onChange={handleChange('uName')}
                           defaultValue={values.uName}
                          />
                         <br/>
                         <p>Your email:</p>
-                        <TextField
+                        <input type="text"
                           onChange={handleChange('uEmail')}
                           defaultValue={values.uEmail}
                          />
                         <br/>
                         <p>Your phone:</p>
-                        <TextField
+                        <input type="text"
                           onChange={handleChange('uPhone')}
                           defaultValue={values.uPhone}
                          />
@@ -49,8 +49,7 @@ class LeadDetails extends Component {
                         <Geosuggest />
                         
                         <p>How do you know {values.bride}:</p>
-                        <TextField
-                          fullWidth="true"
+                        <input type="text"
                           onChange={handleChange('uBio')}
                           defaultValue={values.uBio}
                          />
@@ -59,24 +58,20 @@ class LeadDetails extends Component {
                       </Container>  
                     </Paper>
                     <br/>
-                    <Button 
-                      variant="contained"
-                      color="default"
-                      label="Continue"
-                      primary={true}
+                    
+                    {/* Navigation Buttons */}
+                    <input
+                      type="button"
+                      label="Back"
+                      value="Back"
                       onClick={this.back}
-                    >
-                        Back
-                    </Button>
-                    <Button 
-                      variant="contained"
-                      color="primary"
+                    />
+                    <input
+                      type="button"
                       label="Continue"
-                      primary={true}
+                      value="Continue"
                       onClick={this.continue}
-                    >
-                        Continue
-                    </Button>
+                    />
                 </Container>
             </div>
         );

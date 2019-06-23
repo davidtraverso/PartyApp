@@ -23,28 +23,37 @@ class PartyDate extends Component {
     
     
     render() {
-        const {values, handleChange} = this.props;
+        const {values, handleChange, handleDate} = this.props;
         const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']
+        const d = values.startDate;
+
         return(
             <div>
               <p>PartyDate Form</p>
+              <div>Start Date: {d.getMonth()}/{d.getDate()}/{d.getFullYear()} </div>
+              <p>Current state of 'month': {values.month}</p>
                 <Container maxWidth="sm">
                     <Paper>
                         <Container maxWidth="xl">
                             <h3>When is it going down?</h3>
+                            <div className="datepicker">
                             <DatePicker
                             inline
                             selected={values.startDate}
-                            onSelect={this.handleChange}
+                            onChange={handleDate}
                             />
+                            </div>
                             <h5>Not sure of all the details yet?<br/>
                             It's cool. We'll help you figure that out later.<br/>
                             </h5>
                             <Container maxWidth="xl">
-                                <GridList cellHeight={40} cols={4}>
+                                <GridList cellHeight={20} cols={4}>
                                     {months.map(month => (
                                     <GridListTile key={month} cols={1}>
-                                        <Button size="small" variant="outlined">{month}</Button>
+                                        <input 
+                                         type="button"
+                                         value={month}
+                                         onClick={handleChange('month')} />
                                     </GridListTile>
                                     ))}
                                 </GridList>
@@ -53,24 +62,20 @@ class PartyDate extends Component {
                         </Container>
                     </Paper>
                     <br/>
-                    <Button 
-                      variant="contained"
-                      color="default"
-                      label="Continue"
-                      primary={true}
+                    
+                    {/* Navigation Buttons */}
+                    <input
+                      type="button"
+                      label="Back"
+                      value="Back"
                       onClick={this.back}
-                    >
-                        Back
-                    </Button>
-                    <Button 
-                      variant="contained"
-                      color="primary"
+                    />
+                    <input
+                      type="button"
                       label="Continue"
-                      primary={true}
+                      value="Continue"
                       onClick={this.continue}
-                    >
-                        Continue
-                    </Button>
+                    />
                 </Container>
             </div>
         );

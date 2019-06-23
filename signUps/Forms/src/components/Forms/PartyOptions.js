@@ -19,21 +19,16 @@ class PartyOptions extends Component {
     
     render() {
         const {values, handleChange} = this.props;
-        const { type, name, bride, startDate, month, city, state, uName, uEmail, uPhone, uCity, uState, uBio, uPassword } = values
+        const {startDate, ...restOfState} = values;
         return(
             <div>
               <p>PartyOptions Form</p>
                 <Container maxWidth="sm">
                     <Paper>
                       <Container maxWidth="sm">
-                        <h3>Confirm React State is correct:</h3>
-                        <p>Party type is {type}</p>
-                        <p>Party name is {name}</p>
-                        <p>Bride/Bachelor: {bride}</p>
-                        <p>uName: {uName}</p>
-                        <p>uEmail: {uEmail}</p>
-                        <p>uPassword: {uPassword}</p>
-                        <p>uBio: {uBio}</p>
+                        {Object.entries(restOfState).map( v => (
+                            <p>{v[0]}: {v[1]}</p>
+                        ))}
                         </Container>
                     </Paper>
                     <br/>

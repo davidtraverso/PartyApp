@@ -17,6 +17,9 @@ class NewLead extends Component {
         name: '',
         bride: '',
         startDate: new Date(),
+        startDay: '',
+        startMonth: '',
+        startYear: '',
         month: '',
         city: '',
         state: '',
@@ -34,6 +37,7 @@ class NewLead extends Component {
       this.prevStep = this.prevStep.bind(this)
       this.handleChange = this.handleChange.bind(this)
       this.handleDate = this.handleDate.bind(this)
+      this.handleButton = this.handleButton.bind(this)
     }
 
      // Proceed to next step
@@ -60,15 +64,25 @@ class NewLead extends Component {
     // Handle date picker
     handleDate(date) {
         this.setState({
-            startDate: date
+          startDate: date,
+          startDay: date.getDate(),
+          startMonth: date.getMonth(),
+          startYear: date.getFullYear()
+        });
+      }
+
+    // Handle Button selections
+    handleButton = input => event => {
+        this.setState({
+          [input]: event.target.name
         })
-    }
+      }
 
     // Rendering Data
     render(){
         const { step } = this.state
-        const { type, name, bride, startDate, month, city, state, uName, uEmail, uPhone, uCity, uState, uBio, uPassword } = this.state
-        const values = { type, name, bride, startDate, month, city, state, uName, uEmail, uPhone, uCity, uState, uBio, uPassword }
+        const { type, name, bride, startDate, startDay, startMonth, startYear, month, city, state, uName, uEmail, uPhone, uCity, uState, uBio, uPassword } = this.state
+        const values = { type, name, bride, startDate, startDay, startMonth, startYear, month, city, state, uName, uEmail, uPhone, uCity, uState, uBio, uPassword }
         
         // Switch tree to render each form
         switch(step) {
@@ -95,6 +109,7 @@ class NewLead extends Component {
                       nextStep={this.nextStep}
                       prevStep={this.prevStep}
                       handleChange={this.handleChange}
+                      handleButton={this.handleButton}
                       values={values}
                     />
                 )
@@ -103,7 +118,8 @@ class NewLead extends Component {
                     <PartyDate
                       nextStep={this.nextStep}
                       prevStep={this.prevStep}
-                      handleChange={this.setDate}
+                      handleChange={this.handleChange}
+                      handleDate={this.handleDate}
                       values={values}
                      />
                 )
@@ -144,7 +160,6 @@ class NewLead extends Component {
                       values={values}
                     />
                 )
-
         }
     }
 }

@@ -1,8 +1,5 @@
 import React, {Component} from 'react';
-import Container from '@material-ui/core/Container';
-import Paper from '@material-ui/core/Paper';
-import Button from '@material-ui/core/Button';
-import TextField from '@material-ui/core/TextField';
+import {Container, Paper} from '@material-ui/core';
 
 class PartyName extends Component {
     // Function to go to next form
@@ -17,15 +14,17 @@ class PartyName extends Component {
     }
     
     render() {
-        const {values, handleChange} = this.props;
+        const {values, handleChange, handleButton} = this.props;
 
         return(
             <div>
               <p>PartyBride Form</p>
+              <p>Current state is {values.name}</p>
                 <Container maxWidth="sm">
                     <Paper>
                         <h3>What do you want to call your party?</h3>
-                        <TextField
+                        <input
+                          type="text"
                           onChange={handleChange('name')}
                           defaultValue={values.name}
                          />
@@ -33,42 +32,41 @@ class PartyName extends Component {
                         <h5>Hey no pressure!<br/>
                         Here are some suggestions to choose from:</h5>
                         <Container>
-                          <Button 
-                            variant="contained"
-                            color="default"
-                            label="Suggestion1"
-                          >Suggestion 1</Button>
-                          <Button 
-                            variant="contained"
-                            color="default"
-                            label="Suggestion1"
-                          >Suggestion 2</Button>
-                          <Button 
-                            variant="contained"
-                            color="default"
-                            label="Suggestion1"
-                          >Suggestion 3</Button>
+                          <input 
+                           type="button"
+                           value="SuggestionTest"
+                           name="Suggestion1"
+                           onClick={handleButton('name')}
+                          />
+                          <input 
+                           type="button"
+                           value="SuggestionTest"
+                           name="Suggestion2"
+                           onClick={handleButton('name')}
+                          />
+                          <input 
+                           type="button"
+                           value="SuggestionTest"
+                           name="Suggestion3"
+                           onClick={handleButton('name')}
+                          />
                         </Container>
                     </Paper>
                     <br/>
-                    <Button 
-                      variant="contained"
-                      color="default"
-                      label="Continue"
-                      primary={true}
+                    
+                    {/* Navigation Buttons */}
+                    <input
+                      type="button"
+                      label="Back"
+                      value="Back"
                       onClick={this.back}
-                    >
-                        Back
-                    </Button>
-                    <Button 
-                      variant="contained"
-                      color="primary"
+                    />
+                    <input
+                      type="button"
                       label="Continue"
-                      primary={true}
+                      value="Continue"
                       onClick={this.continue}
-                    >
-                        Continue
-                    </Button>
+                    />
                 </Container>
             </div>
         );
