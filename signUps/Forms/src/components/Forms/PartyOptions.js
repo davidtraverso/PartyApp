@@ -32,15 +32,11 @@ class PartyOptions extends Component {
                         </Container>
                     </Paper>
                     <br/>
-                    <Button 
-                      variant="contained"
-                      color="default"
-                      label="Continue"
-                      primary={true}
+                    <input 
+                      type="button"
+                      value="Back"
                       onClick={this.back}
-                    >
-                        Back
-                    </Button>
+                    />
                 </Container>
             </div>
         );

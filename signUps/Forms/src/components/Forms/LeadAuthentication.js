@@ -26,7 +26,7 @@ class LeadAuthentication extends Component {
                 <Container maxWidth="sm">
                     <Paper>
                         <Container maxWidth="sm">
-                        <h3>Alright {values.uName}, let's create your account and get the party planning started!:'</h3>
+                        <h3>Alright {values.uName}, let's create your account and get the party planning started!</h3>
                         <p>Your email:</p>
                         <input type="email"
                           onChange={handleChange('uEmail')}
