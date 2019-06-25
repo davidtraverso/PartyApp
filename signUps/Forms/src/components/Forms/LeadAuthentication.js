@@ -1,9 +1,5 @@
 import React, {Component} from 'react';
 import Container from '@material-ui/core/Container';
-import Paper from '@material-ui/core/Paper';
-import Button from '@material-ui/core/Button';
-import TextField from '@material-ui/core/TextField';
-import Fab from '@material-ui/core/Fab';
 
 class LeadAuthentication extends Component {
     // Function to go to next form
@@ -24,7 +20,7 @@ class LeadAuthentication extends Component {
             <div>
               <p>LeadAuthentication Form</p>
                 <Container maxWidth="sm">
-                    <Paper>
+                  <div id="paper" className="container text-center">
                         <Container maxWidth="sm">
                         <h3>Alright {values.uName}, let's create your account and get the party planning started!</h3>
                         <p>Your email:</p>
@@ -53,7 +49,7 @@ class LeadAuthentication extends Component {
                         <br/>
                         <br/>
                       </Container>  
-                    </Paper>
+                    </div>
                     <br/>
                     {/* Navigation Buttons */}
                     <input

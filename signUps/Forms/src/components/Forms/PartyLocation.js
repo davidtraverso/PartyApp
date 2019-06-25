@@ -1,7 +1,5 @@
 import React, {Component} from 'react';
 import Container from '@material-ui/core/Container';
-import Paper from '@material-ui/core/Paper';
-import Button from '@material-ui/core/Button';
 import Geosuggest from 'react-geosuggest';
 // Need to get the GoogleMaps API to run Geosuggest.
 
@@ -29,17 +27,21 @@ class PartyLocation extends Component {
             <div>
               <p>PartyLocation Form</p>
                 <Container maxWidth="sm">
-                    <Paper>
+                    <div id="paper" className="container text-center">
                         <Container maxWidth="xl">
                             <h3>Where are we doing this?</h3>
-                            <Geosuggest />
+                            <Geosuggest 
+                              placeholder="Austin, TX"
+                              queryDelay={10}
+                              highlightMatch="true"
+                            />
 
 
                             <h5>Is that still up in the air?<br/>
                             Let's make YOUR CITY the party HQ for now!<br/>
                             </h5>
                         </Container>
-                    </Paper>
+                    </div>
                     
                     {/* Navigation Buttons */}
                     <input

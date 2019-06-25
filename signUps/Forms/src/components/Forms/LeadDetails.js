@@ -1,8 +1,5 @@
 import React, {Component} from 'react';
 import Container from '@material-ui/core/Container';
-import Paper from '@material-ui/core/Paper';
-import Button from '@material-ui/core/Button';
-import TextField from '@material-ui/core/TextField';
 import Geosuggest from 'react-geosuggest';
 
 class LeadDetails extends Component {
@@ -24,7 +21,7 @@ class LeadDetails extends Component {
             <div>
               <p>LeadDetails Form</p>
                 <Container maxWidth="sm">
-                    <Paper>
+                  <div id="paper" className="container text-center">
                         <Container maxWidth="sm">
                         <h3>Tell us about yourself:</h3>
                         <p>Your name:</p>
@@ -56,7 +53,7 @@ class LeadDetails extends Component {
                         <br/>
                         <br/>
                       </Container>  
-                    </Paper>
+                    </div>
                     <br/>
                     
                     {/* Navigation Buttons */}

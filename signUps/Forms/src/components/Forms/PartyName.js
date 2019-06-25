@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {Container, Paper} from '@material-ui/core';
+import {Container} from '@material-ui/core';
 
 class PartyName extends Component {
     // Function to go to next form
@@ -15,13 +15,16 @@ class PartyName extends Component {
     
     render() {
         const {values, handleChange, handleButton} = this.props;
+        
+        
+
 
         return(
             <div>
               <p>PartyBride Form</p>
               <p>Current state is {values.name}</p>
                 <Container maxWidth="sm">
-                    <Paper>
+                  <div id="paper" className="container text-center">
                         <h3>What do you want to call your party?</h3>
                         <input
                           type="text"
@@ -51,7 +54,7 @@ class PartyName extends Component {
                            onClick={handleButton('name')}
                           />
                         </Container>
-                    </Paper>
+                    </div>
                     <br/>
                     
                     {/* Navigation Buttons */}

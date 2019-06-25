@@ -1,7 +1,5 @@
 import React, {Component} from 'react';
 import Container from '@material-ui/core/Container';
-import Paper from '@material-ui/core/Paper';
-import Button from '@material-ui/core/Button';
 import GridList from '@material-ui/core/GridList';
 import GridListTile from '@material-ui/core/GridListTile';
 import DatePicker from "react-datepicker";
@@ -33,7 +31,7 @@ class PartyDate extends Component {
               <div>Start Date: {d.getMonth()}/{d.getDate()}/{d.getFullYear()} </div>
               <p>Current state of 'month': {values.month}</p>
                 <Container maxWidth="sm">
-                    <Paper>
+                    <div id="paper" className="container text-center">
                         <Container maxWidth="xl">
                             <h3>When is it going down?</h3>
                             <div className="datepicker">
@@ -60,7 +58,7 @@ class PartyDate extends Component {
                             </Container>
 
                         </Container>
-                    </Paper>
+                    </div>
                     <br/>
                     
                     {/* Navigation Buttons */}

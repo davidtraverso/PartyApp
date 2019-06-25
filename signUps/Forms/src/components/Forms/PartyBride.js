@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {Container, Paper} from '@material-ui/core';
+import {Container} from '@material-ui/core';
 
 class PartyBride extends Component {
     // Function to go to next form
@@ -36,7 +36,7 @@ class PartyBride extends Component {
               <p>PartyBride Form</p>
               <p>The bride state is: {values.bride}</p>
                 <Container maxWidth="sm">
-                    <Paper>
+                    <div id="paper" className="container text-center">
                         <h3>What is the name of the {this.personType(values.type)}?</h3>
                         <input
                           type="text"
@@ -45,7 +45,7 @@ class PartyBride extends Component {
                          />
                         <br/>
                         <h5>We're on a first name basis here.</h5>
-                    </Paper>
+                    </div>
             
                     {/* Navigation Buttons */}
                     <input

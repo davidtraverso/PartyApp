@@ -1,9 +1,5 @@
 import React, {Component} from 'react';
 import Container from '@material-ui/core/Container';
-import Paper from '@material-ui/core/Paper';
-import Button from '@material-ui/core/Button';
-import TextField from '@material-ui/core/TextField';
-import Fab from '@material-ui/core/Fab';
 
 class PartyOptions extends Component {
     // Function to go to next form
@@ -24,13 +20,13 @@ class PartyOptions extends Component {
             <div>
               <p>PartyOptions Form</p>
                 <Container maxWidth="sm">
-                    <Paper>
+                    <div id="paper" className="container text-center">
                       <Container maxWidth="sm">
                         {Object.entries(restOfState).map( v => (
                             <p>{v[0]}: {v[1]}</p>
                         ))}
                         </Container>
-                    </Paper>
+                    </div>
                     <br/>
                     <input 
                       type="button"

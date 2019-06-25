@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {Container, Paper} from '@material-ui/core';
+import {Container} from '@material-ui/core';
 
 class PartyType extends Component {
     continue = event => {
@@ -9,14 +9,14 @@ class PartyType extends Component {
 
     render() {
         const {values, handleChange} = this.props;
-
+        
         return(
             <div>
               <p>PartyType Form</p>
               <p>PartyType current state is {values.type}</p>
 
                 <Container maxWidth="sm">
-                    <Paper>
+                  <div id="paper" className="container text-center">  
                       <h3>What type of party are you planning?</h3>
                     <input 
                       type="button"
@@ -33,7 +33,7 @@ class PartyType extends Component {
                       value="joint"
                       onClick={handleChange('type')}
                     />
-                    </Paper>
+                    </div>
                     <br/>
 
                     {/* Navigation Buttons */}
