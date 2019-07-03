@@ -7,6 +7,7 @@ import PartyLocation from './Forms/PartyLocation';
 import LeadDetails from './Forms/LeadDetails';
 import LeadAuthentication from './Forms/LeadAuthentication';
 import PartyOptions from './Forms/PartyOptions';
+import PartyInvite from './Forms/PartyInvite';
 
 class NewLead extends Component {
     constructor(props) {
@@ -158,6 +159,12 @@ class NewLead extends Component {
                       prevStep={this.prevStep}
                       handleChange={this.handleChange}
                       values={values}
+                    />
+                )
+            case 9:
+                return(
+                    <PartyInvite 
+                      prevStep={this.prevStep}
                     />
                 )
         }
