@@ -1,0 +1,14 @@
+body {
+  background: #2c2c54;
+  color: #FFF
+}
+
+.navbar-brand {
+  color: #FFF !important;
+  z-index: 800;
+}
+
+section {
+  background: #40407a;
+  border-radius: .3em;
+}

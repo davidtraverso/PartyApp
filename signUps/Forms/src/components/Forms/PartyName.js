@@ -21,55 +21,58 @@ class PartyName extends Component {
 
         return(
             <div>
-              <p>PartyBride Form</p>
-              <p>Current state is {values.name}</p>
-                <Container maxWidth="sm">
-                  <div id="paper" className="container text-center">
-                        <h3>What do you want to call your party?</h3>
+              <p>PartyBride Form - Current state is {values.name}</p>
+              <Container maxWidth="md">
+                  <div id="paper" className="container p-5 text-center shadow-lg"> 
+                        <h1>What do you want to call your party?</h1>
                         <input
                           type="text"
                           onChange={handleChange('name')}
                           defaultValue={values.name}
+                          size="50"
                          />
                         <br/>
-                        <h5>Hey no pressure!<br/>
-                        Here are some suggestions to choose from:</h5>
+                        <p>Hey no pressure! Here are some suggestions to choose from:</p>
+
                         <Container>
-                          <input 
-                           type="button"
-                           value="SuggestionTest"
+                          <input className="btn btn-outline-light input-item pink"
+                           type="button" 
+                           value="Suggestion Test"
                            name="Suggestion1"
                            onClick={handleButton('name')}
                           />
-                          <input 
+                          <input className="btn btn-outline-light input-item blue"
                            type="button"
-                           value="SuggestionTest"
+                           value="Suggestion Test"
                            name="Suggestion2"
                            onClick={handleButton('name')}
                           />
-                          <input 
+                          <input className="btn btn-outline-light input-item neutral"
                            type="button"
-                           value="SuggestionTest"
+                           value="Suggestion Test"
                            name="Suggestion3"
                            onClick={handleButton('name')}
                           />
                         </Container>
-                    </div>
-                    <br/>
-                    
-                    {/* Navigation Buttons */}
-                    <input
+
+                     {/* Navigation Buttons */}
+                    <input className="w-25 btn btn-lg btn-outline-light submit-item rounded-0"
                       type="button"
                       label="Back"
                       value="Back"
                       onClick={this.back}
                     />
-                    <input
+                    <input className="w-25 btn btn-lg btn-outline-light submit-item rounded-0"
                       type="button"
                       label="Continue"
                       value="Continue"
                       onClick={this.continue}
-                    />
+                    />     
+                        
+                    </div>
+                    <br/>
+                    
+                    
                 </Container>
             </div>
         );

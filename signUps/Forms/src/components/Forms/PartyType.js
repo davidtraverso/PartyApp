@@ -12,37 +12,40 @@ class PartyType extends Component {
         
         return(
             <div>
-              <p>PartyType Form</p>
-              <p>PartyType current state is {values.type}</p>
+              <p>PartyType Form - PartyType current state is {values.type}</p>
 
-                <Container maxWidth="sm">
-                  <div id="paper" className="container text-center">  
-                      <h3>What type of party are you planning?</h3>
-                    <input 
-                      type="button"
-                      value="bachelorette"
-                      onClick={handleChange('type')}
-                    />
-                    <input 
-                      type="button"
-                      value="bachelor"
-                      onClick={handleChange('type')}
-                    />
-                    <input 
-                      type="button"
-                      value="joint"
-                      onClick={handleChange('type')}
-                    />
+                <Container maxWidth="md">
+                  <div id="paper" className="container p-5 text-center shadow-lg">  
+                      <h1>What type of party are you planning?</h1>
+
+                      <div className="p-5">
+                      <input className="btn btn-outline-light input-item pink"
+                        type="button"
+                        value="bachelorette"
+                        onClick={handleChange('type')}
+                      />
+                      <input className="btn btn-outline-light input-item blue"
+                        type="button"
+                        value="bachelor"
+                        onClick={handleChange('type')}
+                      />
+                      <input className="btn btn-outline-light input-item neutral"
+                        type="button"
+                        value="joint"
+                        onClick={handleChange('type')}
+                      />
                     </div>
-                    <br/>
+                    
 
                     {/* Navigation Buttons */}
-                    <input
+                    <input className="w-100 btn btn-lg btn-outline-light submit-item rounded-0"
                       type="button"
                       label="Continue"
                       value="Continue"
                       onClick={this.continue}
                     />
+                    </div>
+                    
                 </Container>
             </div>
         );

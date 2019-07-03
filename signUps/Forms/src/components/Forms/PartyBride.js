@@ -33,33 +33,36 @@ class PartyBride extends Component {
 
         return(
             <div>
-              <p>PartyBride Form</p>
-              <p>The bride state is: {values.bride}</p>
-                <Container maxWidth="sm">
-                    <div id="paper" className="container text-center">
-                        <h3>What is the name of the {this.personType(values.type)}?</h3>
+              <p>PartyBride Form - The bride state is: {values.bride}</p>
+              <Container maxWidth="md">
+                  <div id="paper" className="container p-5 text-center shadow-lg">  
+                        <h1>What is the name of the {this.personType(values.type)}?</h1>
                         <input
                           type="text"
                           onChange={handleChange('bride')}
                           defaultValue={values.bride}
+                          size="50"
                          />
                         <br/>
-                        <h5>We're on a first name basis here.</h5>
+                        <p>We're on a first name basis here.</p>
+
+
+                        {/* Navigation Buttons */}
+                            <input className="w-25 btn btn-lg btn-outline-light submit-item rounded-0"
+                            type="button"
+                            label="Back"
+                            value="Back"
+                            onClick={this.back}
+                            />
+                            <input className="w-25 btn btn-lg btn-outline-light submit-item rounded-0"
+                            type="button"
+                            label="Continue"
+                            value="Continue"
+                            onClick={this.continue}
+                            />
                     </div>
             
-                    {/* Navigation Buttons */}
-                    <input
-                      type="button"
-                      label="Back"
-                      value="Back"
-                      onClick={this.back}
-                    />
-                    <input
-                      type="button"
-                      label="Continue"
-                      value="Continue"
-                      onClick={this.continue}
-                    />
+                    
                 </Container>
             </div>
         );

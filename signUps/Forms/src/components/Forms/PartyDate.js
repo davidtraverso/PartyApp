@@ -27,13 +27,13 @@ class PartyDate extends Component {
 
         return(
             <div>
-              <p>PartyDate Form</p>
-              <div>Start Date: {d.getMonth()}/{d.getDate()}/{d.getFullYear()} </div>
+              <p>PartyDate Form - Start Date: {d.getMonth()}/{d.getDate()}/{d.getFullYear()} </p>
+              
               <p>Current state of 'month': {values.month}</p>
-                <Container maxWidth="sm">
-                    <div id="paper" className="container text-center">
-                        <Container maxWidth="xl">
-                            <h3>When is it going down?</h3>
+              <Container maxWidth="md">
+                  <div id="paper" className="container p-5 text-center shadow-lg"> 
+                       
+                            <h1>When is it going down?</h1>
                             <div className="datepicker">
                             <DatePicker
                             inline
@@ -41,39 +41,37 @@ class PartyDate extends Component {
                             onChange={handleDate}
                             />
                             </div>
-                            <h5>Not sure of all the details yet?<br/>
-                            It's cool. We'll help you figure that out later.<br/>
-                            </h5>
-                            <Container maxWidth="xl">
-                                <GridList cellHeight={20} cols={4}>
+                            <p>Not sure of all the details yet?
+                            It's cool. We'll help you figure that out later.
+                            </p>
+                            
+                                
                                     {months.map(month => (
                                     <GridListTile key={month} cols={1}>
-                                        <input 
+                                        <input className="btn btn-outline-light submit-item rounded-0"
                                          type="button"
                                          value={month}
                                          onClick={handleChange('month')} />
                                     </GridListTile>
                                     ))}
-                                </GridList>
-                            </Container>
-
-                        </Container>
-                    </div>
-                    <br/>
-                    
-                    {/* Navigation Buttons */}
-                    <input
+                                
+                         {/* Navigation Buttons */}
+                    <input className="w-25 btn btn-lg btn-outline-light submit-item rounded-0"
                       type="button"
                       label="Back"
                       value="Back"
                       onClick={this.back}
                     />
-                    <input
+                    <input className="w-25 btn btn-lg btn-outline-light submit-item rounded-0"
                       type="button"
                       label="Continue"
                       value="Continue"
                       onClick={this.continue}
-                    />
+                    />   
+                    </div>
+                   
+                    
+                    
                 </Container>
             </div>
         );

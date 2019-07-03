@@ -5,48 +5,60 @@
 $space-large: 5em;
 $space-height: 120px;
 
-
+body, html {
+  width: 100%;
+  height: 100%;
+	font-family: 'Raleway', sans-serif;	
+}
 body {
 	font-family: 'Raleway', sans-serif;
 }
-
+hr {
+  max-width: 50%;
+  border-width: 3px;
+  border-color: #9980FA;
+}
 /* ---------------------------------------------------
    	Branding
 ----------------------------------------------------- */
 
 .navbar-brand {
 	margin-left: 2em;
-	color: #95afc0;
+	color: $main;
 	font-size: 2em;
 	font-family: 'Shrikhand', cursive;
 	z-index: 9999;
 }
 .navbar-brand:hover {
-	color: #535c68;
+	color: #FFF;
 }
 .navbar-brand.active {
 	color: #FFF;
 	transition: opacity 3s ease-in-out;
 }
-.text-main {
-	color: #95afc0;
+.text-main { 
+	color: $main;
 	font-family: 'Shrikhand', cursive;
 }
+.bg-neutral {
+	background-color: rgba( #ff9f43, .7);  
 
+}
 .bg-pink {
 	background-color: rgba( $bride, .7);  
-	border: 5px solid $bride-alt;
+
 }
 .bg-blue {
 	background-color: rgba( $groom, .7 );
-	border: 5px solid $groom-alt;
 	
 }
-.bg-nuetral {
+.bg-joint {
 	background-color: rgba( $joint, .7 );
-	border: 5px solid $joint-alt;
-}
 
+}
+footer{
+	background: $dark;
+}
 .slide-indicator-1 {
 	content: "";
 	background-color: $bride !important;
@@ -109,6 +121,9 @@ body {
 .no-show {
 	opacity: 0;
 }
+.yes-show {
+	opacity: 1;
+}
  .loader {
   border: 4px solid #f3f3f3; /* Light grey */
   border-top: 4px solid #222f3e; /* Blue */
@@ -135,7 +150,7 @@ body {
     left: -250px;
     height: 100vh;
     z-index: 1050;
-    background: #2d3436;
+    background: #1B1464;
     color: #fff;
     transition: all 0.3s;
     overflow-y: scroll;
@@ -182,14 +197,14 @@ body {
 }
 #sidebarCollapse {
 	position: fixed;
-	color: #95afc0;
+	color: #9980FA;
 	font-size: 1.3em;
 	z-index: 9999;
 	top: .5em;
 	left: 0;
 }
 #sidebarCollapse:hover {
-	color: #535c68;
+	color: #FFF;
 }
 #sidebarCollapse.active {
 	color: #FFF;
@@ -201,7 +216,7 @@ body {
 
 #sidebar ul.components {
     padding: 20px 0;
-    border-bottom: 1px solid  #636e72;
+    border-bottom: 1px solid  #5758BB;
 }
 
 #sidebar ul p {
@@ -238,7 +253,7 @@ body {
 	transform: translateX(0);
 }
 #sidebar ul li a:hover {
-    background: #636e72;
+    background: #5758BB;
 	text-decoration: none;
 }
 
@@ -306,6 +321,42 @@ main {
 header {
 	padding:.5em 0;
 }
+
+#mainNav.navbar-shrink {
+    background-color: $dark;
+  }
+#logo.navbar-shrink {
+    opacity: 1;
+  }
+section.masthead {
+  background: -webkit-linear-gradient(rgba(6,82,221,0.5) 0%, rgba(8,82,220,0.5) 1%, rgba(237,76,103,0.5) 100%);
+  background: -o-linear-gradient(rgba(6,82,221,0.5) 0%, rgba(8,82,220,0.5) 1%, rgba(237,76,103,0.5) 100%);
+  background: linear-gradient(rgba(6,82,221,0.5) 0%, rgba(8,82,220,0.5) 1%, rgba(237,76,103,0.5) 100%);	
+  padding-top: 10rem;
+  padding-bottom: calc(10rem - 56px);
+	height: 100vh;
+    min-height: 650px;
+	h1 {
+		color: #FFF;
+		font-size: 3.5em;
+	}
+}
+
+#how {
+	.col-md-3:nth-child(even) {
+		top: -1em;
+	}
+	h3 {
+		font-size: 3em;
+		border: 1px solid #FFF;
+		border-radius: 50%;
+		height: 100px;
+		width: 100px;
+		line-height: 90px;
+	}
+}
+
+
 #slideshow {
 	margin-bottom: $space-large;
 }
@@ -316,6 +367,32 @@ header {
 .large-space {
 	padding: $space-large 0;
 }
+
+.down-arrow {
+	display: block;
+	background: url(../assets/down-arrow.svg) center no-repeat;
+	background-size: 20px 20px;
+	overflow: hidden;
+	text-indent: -9999px;
+	border: 1px solid #FFF;
+	border-radius: 50%;
+	height: 50px;
+	width: 50px;
+}
+
+
+/* ---------------------------------------------------
+    BACKGROUNDS
+----------------------------------------------------- */
+.banners {
+	background-position: center; -webkit-background-size: cover; -moz-background-size: cover;  -o-background-size: cover; background-size: cover;
+	background-attachment: fixed;
+	color: white;
+}
+.lights {background-image:url(../assets/lights.jpg);}
+.bridal {background-image:url(../assets/bridal-party.jpg);}
+.groomsmen {background-image:url(../assets/grooms-party.jpg);}
+.joint {background-image:url(../assets/joint-party.jpg);}
 
 
 
