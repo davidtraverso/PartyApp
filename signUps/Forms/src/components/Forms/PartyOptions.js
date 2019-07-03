@@ -33,6 +33,11 @@ class PartyOptions extends Component {
                       value="Back"
                       onClick={this.back}
                     />
+                    <input 
+                      type="button"
+                      value="Continue"
+                      onClick={this.continue}
+                    />
                 </Container>
             </div>
         );
