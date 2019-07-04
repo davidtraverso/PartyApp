@@ -14,25 +14,10 @@ alter user coordin8 set search_path = coordin8Schema, public;
 REVOKE CONNECT ON DATABASE accsoftwarebootcamp FROM coordin8;
 GRANT CONNECT ON DATABASE accsoftwarebootcamp TO coordin8;
 
--- GRANT SELECT, INSERT, UPDATE, DELETE ON ALL TABLES IN SCHEMA coordin8Schema TO coordin8;
--- above grant only provides privs on existing tables.  See default privs below
-ALTER DEFAULT PRIVILEGES 
-    FOR ROLE coordin8 
-    IN SCHEMA coordin8Schema
-    GRANT SELECT, INSERT, UPDATE, DELETE ON TABLES TO coordin8;
--- ALTER DEFAULT PRIVILEGES 
---     FOR ROLE coordin8 
---     GRANT ALL PRIVILEGES ON ALL SEQUENCES IN SCHEMA coordin8Schema TO coordin8;
+GRANT USAGE ON SCHEMA coordin8Schema TO coordin8;
 
-ALTER DEFAULT PRIVILEGES
-    FOR ROLE coordin8
-    IN SCHEMA coordin8Schema
-GRANT 
-    ALL PRIVILEGES
-    ON SEQUENCES
-    TO 
-    coordin8;
-
+ALTER DEFAULT PRIVILEGES IN SCHEMA coordin8Schema GRANT ALL PRIVILEGES ON TABLES TO coordin8;
+ALTER DEFAULT PRIVILEGES IN SCHEMA coordin8Schema GRANT USAGE          ON SEQUENCES TO coordin8;
 ALTER ROLE coordin8 SET search_path TO coordin8Schema;
 
 -- EXEC SQL 
@@ -52,7 +37,7 @@ CREATE TABLE coordin8Schema.Events (
     event_location_id integer  NOT NULL,
     CONSTRAINT Events_pk PRIMARY KEY (id)
 );
-GRANT ALL PRIVILEGES ON coordin8Schema.users to coordin8;
+GRANT ALL PRIVILEGES ON coordin8Schema.events to coordin8;
 
 -- Table: Expenses
 CREATE TABLE coordin8Schema.Expenses (
@@ -63,6 +48,7 @@ CREATE TABLE coordin8Schema.Expenses (
     Events_id integer  NULL,
     CONSTRAINT Expenses_pk PRIMARY KEY (id)
 );
+GRANT ALL PRIVILEGES ON coordin8Schema.expenses to coordin8;
 
 -- Table: Locations
 CREATE TABLE coordin8Schema.Locations (
@@ -227,6 +213,8 @@ ALTER TABLE coordin8Schema.Users ADD CONSTRAINT Users_Roles
     NOT DEFERRABLE 
     INITIALLY IMMEDIATE
 ;
+
+INSERT INTO coordin8schema.locations (id, street, city, state, country, timezone) VALUES (100, '123 My Street', 'Austin', 'TX', 'USA', 'CST');
 
 -- End of file.
 
