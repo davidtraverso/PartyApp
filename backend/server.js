@@ -33,14 +33,86 @@ client
 
 // ROUTES
 app.get('/', (req, res) => res.send('Hello World!'));
+//
+//
+//
+//
 
 /* *** DASHBOARD ROUTES *** */
 // GET for main landing page
-app.get('/app/main', (req, res) => res.send('App main reached!'));
+app.get('/app/main', (req, res) => {
+  let userEmail = req.body.user;
+  // Test userEmail
+  console.log(userEmail);
 
-// TEST ROUTE to ensure '/create' route exists.
-app.get('/create', (req, res) => res.status(200).send('Successful GET, coordin8!'));
+  let query = `SELECT 
+  t.parties_id as "partyID",
+  p.party_name as "partyName", 
+  p.party_type as "partyType",
+  CONCAT(l.city,', ', l.state) as "partyLocation",
+  t.users_id as "userID",
+  u.first_name as "firstName",
+  u.last_name as "lastName",
+  u.roles_id as "role",
+  u.locations_id as "userLocation"
+FROM parties p 
+  JOIN user_party_role t ON p.id=t.parties_id
+  JOIN users u ON t.users_id=u.id
+  JOIN locations l ON p.locations_id=l.id
+WHERE p.id=(
+  SELECT parties_id
+  FROM users WHERE email='${userEmail}')`;
 
+  // Run query
+  client.query(query, function(err, response) {
+    if (err) {
+      console.log('Error: ', err);
+      res.status(400).send({ code: 1239, message: 'Insert Error: ' + err });
+    }
+    // Convert database results to JSON
+    let successResponse = JSON.stringify(response.rows);
+
+    // Send status and response
+    res.status(200).send(successResponse);
+  });
+});
+
+/* *** ACCOUNT SETTINGS *** */
+/* GET */
+
+app.get('/app/account', (req, res) => {
+  let userEmail = req.body.user;
+  // Test userEmail
+  console.log(userEmail);
+
+  // Query definition
+  let query = `SELECT
+    u.first_name as "firstName",
+    u.last_name as "lastName",
+    u.phone as "phone",
+    u.email as "email",
+    u.password as "password",
+    CONCAT(l.city, ', ', l.state) as "location" 
+  FROM users u 
+    JOIN locations l ON u.locations_id=l.id
+  WHERE u.email='${userEmail}'`;
+
+  // Run query
+  client.query(query, function(err, response) {
+    if (err) {
+      console.log('Error: ', err);
+      res.status(400).send({ code: 1239, message: 'Insert Error: ' + err });
+    }
+    // Convert database results to JSON
+    let successResponse = JSON.stringify(response.rows);
+
+    // Send status and response
+    res.status(200).send(successResponse);
+  });
+});
+
+// PUT
+//
 /* *** SIGN UP ROUTES *** */
 
 // POST handler for /signUps/Forms React app.
@@ -69,7 +141,7 @@ app.post('/create', function(req, res) {
       res.status(400).send({ code: 1239, message: 'Insert Error: ' + err });
     }
     console.log(party);
-    res.status(200).send('Successful creation of:' + data.name);
+    res.status(201).send('Successful creation of:' + data.name, party);
   });
 });
 
