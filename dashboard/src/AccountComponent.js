@@ -10,7 +10,64 @@ class About extends Component {
 
     return(
       <div>
-        <h1>This is where all the html goes!</h1>
+            <Container maxWidth="md">
+                  <div id="paper" className="container p-5 text-center shadow-lg">  
+                      <h1>Account Settings</h1>
+
+                      <div className="p-5">
+                      <form>
+                        <label>
+                        Name:
+                          <input type="text" name="name" />
+                        </label>
+                        <label>
+                        Username:
+                          <input type="text" name="username" />
+                        </label>  <label>
+                        Password:
+                          <input type="text" name="password" />
+                        </label>
+                        <label>
+                        Phone Number:
+                          <input type="text" name="phone number" />
+                        </label>
+                        <label>
+                        Email:
+                          <input type="text" name="email" />
+                        </label>
+                        <label>
+                        City, State:
+                          <input type="text" name="location" />
+                        </label>
+                        <label>
+                        Facebook:
+                          <input type="text" name="socialMedia" />
+                        </label>
+                        <label>
+                        Instagram:
+                          <input type="text" name="socialMedia" />
+                        </label>
+                      <input type="submit" value="Submit" />
+                      </form>
+                    </div>
+
+                    Password: <input type="password" value="FakePSW" id="myInput"><br><br>
+                        <input type="checkbox" onclick="myFunction()">Show Password
+                    <script>
+                    function myFunction() {
+                      var x = document.getElementById("myInput");
+                      if (x.type === "password") {
+                        x.type = "text";
+                      } else {
+                        x.type = "password";
+                      }
+                    }
+                    </script>
+
+                  </div>
+                    
+              </Container>
+            
      </div>
     );
   };
