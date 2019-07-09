@@ -12,3 +12,7 @@ section {
   background: #40407a;
   border-radius: .3em;
 }
+
+#paper label{
+  margin-left: 25px;
+}
