@@ -7,7 +7,6 @@ body {
   font-family: 'Raleway', sans-serif !important;
 }
 
-
 #main {
   background: -webkit-linear-gradient(rgba(6,82,221,0.5) 0%, rgba(8,82,220,0.5) 1%, rgba(237,76,103,0.5) 100%);
   background: -o-linear-gradient(rgba(6,82,221,0.5) 0%, rgba(8,82,220,0.5) 1%, rgba(237,76,103,0.5) 100%);
@@ -15,8 +14,6 @@ body {
   width: 100%;
   min-height: 100vh;
 }
-
-
 
 #paper {
   background-color: rgba(34,47,62, 0.7) !important;

@@ -14,7 +14,10 @@ class PartyOptions extends Component {
     }
     
     render() {
-        const {values, handleChange} = this.props;
+        const {
+          values, 
+          // handleChange
+        } = this.props;
         const {startDate, ...restOfState} = values;
         return(
             <div>

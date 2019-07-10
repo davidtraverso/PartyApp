@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import Container from '@material-ui/core/Container';
-import GridList from '@material-ui/core/GridList';
+// import GridList from '@material-ui/core/GridList';
 import GridListTile from '@material-ui/core/GridListTile';
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
@@ -19,8 +19,8 @@ class PartyDate extends Component {
 
   render() {
     const { values, handleChange, handleDate } = this.props;
-    const today = new Date(); // For future use populating the month 
-    const thisMonth = today.getMonth(); // January = 0, July = 6
+    // const today = new Date(); // For future use populating the month 
+    // const thisMonth = today.getMonth(); // January = 0, July = 6
     const months = [
       'January',
       'February',

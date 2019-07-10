@@ -14,17 +14,19 @@ class PartyBride extends Component {
     }
 
     personType(input) {
-        var person = 'david'
-        
-        if (input == 'bachelorette'){
-            return person = 'bride'
-        } else if (input == 'bachelor'){
-            return person = 'groom'
-        } else if (input == 'joint'){
-            return person = 'person we are celebrating'
+        // var person = 'david'
+        var person
+
+        if (input === 'bachelorette'){
+            person = 'bride'
+        } else if (input === 'bachelor'){
+            person = 'groom'
+        } else if (input === 'joint'){
+            person = 'person we are celebrating'
         } else {
-            return person = 'NoPartyType'
+            person = 'NoPartyType'
         }
+        return person
     };
     
     render() {

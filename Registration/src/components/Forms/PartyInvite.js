@@ -7,10 +7,10 @@ class PartyInvite extends Component {
         email: '',
         emails: ['1', '2'],
         SMS: []
-        }
+      }
 
-      this.handleChange = this.handleChange.bind(this);
-      this.addEmail = this.addEmail.bind(this);
+      // this.handleChange = this.handleChange.bind(this);
+      // this.addEmail = this.addEmail.bind(this);
       this.addSMS = this.addSMS.bind(this);
     }
     // Function to handle phone/email field change and set in state
@@ -51,7 +51,7 @@ class PartyInvite extends Component {
     
     render() {
       const numberOfRows = [1, 2, 3, 4]
-      var currentEmail = this.state.email;
+      // var currentEmail = this.state.email;
       var emailArray = [...this.state.emails];
 
       return (
@@ -87,8 +87,6 @@ class PartyInvite extends Component {
               value="Back"
               onClick={this.back}
             />
-
-
       </div>
     );
   }

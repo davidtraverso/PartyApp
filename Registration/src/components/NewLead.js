@@ -34,11 +34,11 @@ class NewLead extends Component {
         //options   
       }
 
-      this.nextStep = this.nextStep.bind(this)
-      this.prevStep = this.prevStep.bind(this)
-      this.handleChange = this.handleChange.bind(this)
-      this.handleDate = this.handleDate.bind(this)
-      this.handleButton = this.handleButton.bind(this)
+      // this.nextStep = this.nextStep.bind(this)
+      // this.prevStep = this.prevStep.bind(this)
+      // this.handleChange = this.handleChange.bind(this)
+      // this.handleDate = this.handleDate.bind(this)
+      // this.handleButton = this.handleButton.bind(this)
     }
 
      // Proceed to next step
@@ -167,6 +167,8 @@ class NewLead extends Component {
                       prevStep={this.prevStep}
                     />
                 )
+            default:
+              return false
         }
     }
 }

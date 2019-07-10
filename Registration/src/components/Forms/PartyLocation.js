@@ -21,7 +21,10 @@ class PartyLocation extends Component {
     
     
     render() {
-        const {values, handleChange} = this.props;
+        // const {
+        //     // values, 
+        //     // handleChange
+        // } = this.props;
 
         return(
             <div>
