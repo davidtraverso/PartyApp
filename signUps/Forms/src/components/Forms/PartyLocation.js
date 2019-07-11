@@ -26,10 +26,10 @@ class PartyLocation extends Component {
         return(
             <div>
               <p>PartyLocation Form</p>
-                <Container maxWidth="sm">
-                    <div id="paper" className="container text-center">
-                        <Container maxWidth="xl">
-                            <h3>Where are we doing this?</h3>
+              <Container maxWidth="md">
+                  <div id="paper" className="container p-5 text-center shadow-lg">  
+                       
+                            <h1>Where are we doing this?</h1>
                             <Geosuggest 
                               placeholder="Austin, TX"
                               queryDelay={10}
@@ -37,25 +37,27 @@ class PartyLocation extends Component {
                             />
 
 
-                            <h5>Is that still up in the air?<br/>
-                            Let's make YOUR CITY the party HQ for now!<br/>
-                            </h5>
-                        </Container>
+                            <h4>Is this still up in the air?<br/>
+                            No worries, press continue to make your city the party HQ for now!<br/>
+                            </h4>
+                        
+                            {/* Navigation Buttons */}
+                            <input className="w-25 btn btn-lg btn-outline-light submit-item rounded-0"
+                            type="button"
+                            label="Back"
+                            value="Back"
+                            onClick={this.back}
+                            />
+                            <input className="w-25 btn btn-lg btn-outline-light submit-item rounded-0"
+                            type="button"
+                            label="Continue"
+                            value="Continue"
+                            onClick={this.continue}
+                            />
+
                     </div>
                     
-                    {/* Navigation Buttons */}
-                    <input
-                      type="button"
-                      label="Back"
-                      value="Back"
-                      onClick={this.back}
-                    />
-                    <input
-                      type="button"
-                      label="Continue"
-                      value="Continue"
-                      onClick={this.continue}
-                    />
+                    
                 </Container>
             </div>
         );

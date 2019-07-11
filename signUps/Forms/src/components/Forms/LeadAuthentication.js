@@ -42,45 +42,49 @@ class LeadAuthentication extends Component {
     return (
       <div>
         <p>LeadAuthentication Form</p>
-        <Container maxWidth="sm">
-          <div id="paper" className="container text-center">
-            <Container maxWidth="sm">
-              <h3>
-                Alright {values.uName}, let's create your account and get the
-                party planning started!
-              </h3>
-              <p>Your email:</p>
+        <Container maxWidth="md">
+            <div id="paper" className="container p-5 text-center shadow-lg"> 
+           
+              <h1>
+                {values.uName}, let's create your account and start
+                party planning!
+              </h1>
+
+               <label for="email" class="control-label"><h5>Your email:</h5></label>
               <input
                 type="email"
+                name="email"
                 onChange={handleChange('uEmail')}
                 value={values.uEmail}
                 placeholder={values.uEmail}
                 disabled={true}
+                className="d-block w-100"
               />
-              <br />
-              <p>Your password:</p>
+              
+              <label for="password" class="control-label"><h5>Your password:</h5></label>
               <input
                 type="password"
+                name="password"
                 onChange={handleChange('uPassword')}
                 defaultValue={values.uPassword}
+                className="d-block w-100"
               />
-              <br />
-              <p>Confirm password:</p>
-              <input type="password" defaultValue={values.uPassword} />
-              <br />
-              <br />
-              <input
+              
+              <label for="confirm" class="control-label"><h5>Confirm password:</h5></label>
+              <input type="password" name="confirm" defaultValue={values.uPassword} className="d-block w-100"/>
+             
+              <input className="w-25 btn btn-lg btn-outline-light submit-item rounded-0"
                 type="button"
                 value="Create your Party!"
                 onClick={this.createParty}
+                
               />
-              <br />
-              <br />
-            </Container>
+              
+            {/* Navigation Buttons */}
+            <input className="w-25 btn btn-lg btn-outline-light submit-item rounded-0" type="button" label="Back" value="Back" onClick={this.back} />
           </div>
-          <br />
-          {/* Navigation Buttons */}
-          <input type="button" label="Back" value="Back" onClick={this.back} />
+          
+          
         </Container>
       </div>
     );

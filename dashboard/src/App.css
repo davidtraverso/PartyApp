@@ -3,12 +3,27 @@ body {
   color: #FFF
 }
 
+h1 {
+  color: #FFF;
+}
 .navbar-brand {
   color: #FFF !important;
   z-index: 800;
 }
-
-section {
+.module {
   background: #40407a;
   border-radius: .3em;
+}
+
+.background-highlight {
+  background-color: #ff9f43;
+}
+
+
+footer, .events {
+  background: #1E1E2E !important;
+}
+
+footer  .navbar-brand {
+  font-size: .9em;
 }

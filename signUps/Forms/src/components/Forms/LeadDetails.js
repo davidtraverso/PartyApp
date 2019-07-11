@@ -20,55 +20,66 @@ class LeadDetails extends Component {
         return(
             <div>
               <p>LeadDetails Form</p>
-                <Container maxWidth="sm">
-                  <div id="paper" className="container text-center">
-                        <Container maxWidth="sm">
-                        <h3>Tell us about yourself:</h3>
-                        <p>Your name:</p>
-                        <input type="text"
+              <Container maxWidth="md">
+                  <div id="paper" className="container p-5 text-center shadow-lg">  
+                       
+                        <h1>Tell us about yourself:</h1>
+
+                        <label for="name" class="control-label sr-only">Your name:</label>
+                        <input type="text" 
+                          name="name"
                           onChange={handleChange('uName')}
+                          placeholder="Your Name"
                           defaultValue={values.uName}
+                          className="d-block w-100"
                          />
-                        <br/>
-                        <p>Your email:</p>
+                       
+                        <label for="email" class="control-label sr-only">Your email:</label>
                         <input type="text"
+                          name="email"
                           onChange={handleChange('uEmail')}
+                          placeholder="Your Email"
                           defaultValue={values.uEmail}
+                          className="d-block w-100"
                          />
-                        <br/>
-                        <p>Your phone:</p>
+                     
+                        <label for="phone" class="control-label sr-only">Your phone:</label>
                         <input type="text"
+                          name="phone"
                           onChange={handleChange('uPhone')}
+                          placeholder="Your Phone Number"
                           defaultValue={values.uPhone}
+                          className="d-block w-100"
                          />
-                        <br/>
-                        <p>Your city of residence:</p>
+                     
+                        <label for="residence" class="control-label"><h5>Your city of residence:</h5></label>
                         <Geosuggest />
                         
-                        <p>How do you know {values.bride}:</p>
+                        <label for="relation" class="control-label"><h5>How do you know {values.bride}:</h5></label>
                         <input type="text"
+                          name="relation"
                           onChange={handleChange('uBio')}
+                          placeholder="Relationship?"
                           defaultValue={values.uBio}
+                          className="d-block w-100"
                          />
-                        <br/>
-                        <br/>
-                      </Container>  
-                    </div>
-                    <br/>
-                    
-                    {/* Navigation Buttons */}
-                    <input
+                   {/* Navigation Buttons */}
+                   <input className="w-25 btn btn-lg btn-outline-light submit-item rounded-0"
                       type="button"
                       label="Back"
                       value="Back"
                       onClick={this.back}
                     />
-                    <input
+                    <input className="w-25 btn btn-lg btn-outline-light submit-item rounded-0"
                       type="button"
                       label="Continue"
                       value="Continue"
                       onClick={this.continue}
                     />
+                    </div>
+                   
+                    
+                    
                 </Container>
             </div>
         );

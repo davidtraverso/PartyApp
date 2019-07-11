@@ -262,6 +262,11 @@ a.article:hover {
 ----------------------------------------------------- */
 #sub-menu {
   margin: .8em 5em 0; }
+  #sub-menu button {
+    background: none !important;
+    border: 0; }
+  #sub-menu button:hover {
+    background: #5758BB !important; }
 
 main {
   width: 100%;
@@ -384,6 +389,31 @@ section.masthead {
   text-align: center;
   top: 50%;
   transform: translateY(-50%); }
+
+.modal-content {
+  background: #341f97;
+  border-radius: 0; }
+  .modal-content h5 {
+    color: #ff9f43;
+    font-weight: 700; }
+  .modal-content .button {
+    display: inline;
+    background: #5758BB;
+    width: 48%;
+    color: #FFF; }
+  .modal-content .button:hover, .modal-content .button:focus {
+    background: #706fd3; }
+
+.modal-header .close {
+  padding: 0 1rem; }
+
+.close {
+  font-size: 3rem;
+  font-weight: 400;
+  color: #FFF; }
+
+.close:hover, .close:focus {
+  color: #FFF !important; }
 
 video {
   width: 100%;
