@@ -15,11 +15,11 @@ class Account extends Component {
   }
 
   saveEdit = () => {
-    var x = document.getElementById("myInput");
-    if (x.type === "Save") {
-      x.type = "text";
+    var toggleSaveEdit = this.refs.submit;
+    if (toggleSaveEdit.type === "Submit") {
+      toggleSaveEdit.type = "text";
     } else {
-      x.type = "Edit";
+      toggleSaveEdit.type = "Edit"
     }
   }
 
@@ -45,8 +45,8 @@ class Account extends Component {
                   <input type="text" ref="password" name="password" />
 
                   <label>
-                    Show Password
-                    <input type="checkbox" onClick={this. toggleShowPassword} />
+                    Show Password :
+                    <input type="checkbox" onClick={this. toggleShowPassword} /> 
                   </label>
 
                   <label>
@@ -73,12 +73,12 @@ class Account extends Component {
                     Instagram:
                     <input type="text" name="socialMedia" />
                   </label>
-
-                  Preferred Contact Method:
-                  <input type="radio" name="contactPref" value="text" /> Text
+                  <br></br>
+                  Preferred Contact Method: 
+                  <input type="radio" name="contactPref" value="text" /> Text 
                   <input type="radio" name="contactPref" value="email" /> Email
-
-                  <input type="submit" value="Edit" onClick={this.saveEdit} />
+                  <br></br>
+                  <input type="submit" value="Submit" onClick={this.saveEdit} />
                 </form>
               </div>
           </div>
