@@ -1,0 +1,15 @@
+insert into parties (id, party_type, party_name, start_date, start_month, start_year, locations_id) values (1, 'Chevrolet', 'Gerbillus sp.', '11/21/2019', 'November', '2019', 3);
+insert into parties (id, party_type, party_name, start_date, start_month, start_year, locations_id) values (2, 'Honda', 'Varanus komodensis', '10/6/2019', 'October', '2019', 4);
+insert into parties (id, party_type, party_name, start_date, start_month, start_year, locations_id) values (3, 'Subaru', 'Lamprotornis chalybaeus', '11/18/2019', 'November', '2019', 6);
+insert into parties (id, party_type, party_name, start_date, start_month, start_year, locations_id) values (4, 'Chrysler', 'Canis lupus', '10/18/2019', 'October', '2019', 7);
+insert into parties (id, party_type, party_name, start_date, start_month, start_year, locations_id) values (5, 'Mercedes-Benz', 'Varanus salvator', '10/18/2019', 'October', '2020', 9);
+insert into parties (id, party_type, party_name, start_date, start_month, start_year, locations_id) values (6, 'Mitsubishi', 'Ara chloroptera', '12/16/2019', 'December', '2019', 3);
+insert into parties (id, party_type, party_name, start_date, start_month, start_year, locations_id) values (7, 'Toyota', 'Manouria emys', '8/6/2019', 'January', '2020', 4);
+insert into parties (id, party_type, party_name, start_date, start_month, start_year, locations_id) values (8, 'Mazda', 'Felis silvestris lybica', '7/13/2019', 'July', '2019', 6);
+insert into parties (id, party_type, party_name, start_date, start_month, start_year, locations_id) values (9, 'Infiniti', 'Kobus defassa', '9/17/2019', 'Phoebe', '2020', 7);
+insert into parties (id, party_type, party_name, start_date, start_month, start_year, locations_id) values (10, 'Porsche', 'Corvus albicollis', '10/31/2019', 'October', '2019', 9);
+insert into parties (id, party_type, party_name, start_date, start_month, start_year, locations_id) values (11, 'Audi', 'Eudyptula minor', '10/11/2019', 'October', '2019', 3);
+insert into parties (id, party_type, party_name, start_date, start_month, start_year, locations_id) values (12, 'Oldsmobile', 'Zosterops pallidus', '8/18/2019', 'August', '2020', 4);
+insert into parties (id, party_type, party_name, start_date, start_month, start_year, locations_id) values (13, 'Buick', 'Suricata suricatta', '11/25/2019', 'November', '2019', 6);
+insert into parties (id, party_type, party_name, start_date, start_month, start_year, locations_id) values (14, 'Rolls-Royce', 'Pelecans onocratalus', '11/27/2019', 'November', '2019', 9);
+insert into parties (id, party_type, party_name, start_date, start_month, start_year, locations_id) values (15, 'Ford', 'Pycnonotus nigricans', '9/25/2019', 'September', '2019', 9);
