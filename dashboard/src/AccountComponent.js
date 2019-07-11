@@ -13,7 +13,7 @@ class Account extends Component {
       passwordInputbox.type = "password";
     }
   }
-
+g
   saveEdit = () => {
     var toggleSaveEdit = this.refs.submit;
     if (toggleSaveEdit.type === "Submit") {
