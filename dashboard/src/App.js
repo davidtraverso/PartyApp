@@ -38,20 +38,10 @@ class App extends Component {
               <li className="list-inline-item">
                 |
               </li>
-              <li className="nav-item dropdown">
-                <a className="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                  Dropdown
-                </a>
-                <div className="dropdown-menu" aria-labelledby="navbarDropdown">
-                  <a className="dropdown-item" href="#">Action</a>
-                  <a className="dropdown-item" href="#">Another action</a>
-                  <div className="dropdown-divider"></div>
-                  <a className="dropdown-item" href="#">Something else here</a>
-                </div>
+              <li className="list-inline-item">
+              <button type="button" data-toggle="modal" data-target="#" className="btn text-light">Log Out</button>
               </li>
-              <li className="nav-item">
-                <a className="nav-link disabled" href="#" tabIndex="-1" aria-disabled="true">Disabled</a>
-              </li>
+              
             </ul>
           
               <div className="collapse navbar-collapse" id="navbarSupportedContent">
