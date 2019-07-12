@@ -1,7 +1,7 @@
 const express = require('express');
 const app = express();
 var morgan = require('morgan');
-const port = process.env.PORT || 3005;
+const port = 3005; // eventually add 'process.env.PORT || ' back to this
 
 var bodyParser = require('body-parser');
 app.use(bodyParser.json());
@@ -41,7 +41,7 @@ app.get('/', (req, res) => res.send('Hello World!'));
 /* *** DASHBOARD ROUTES *** */
 // GET for main landing page
 app.get('/app/main', (req, res) => {
-  let userEmail = req.body.user;
+  let userEmail = 'david@yahoo.com'; //req.body.user;
   // Test userEmail
   console.log(userEmail);
 
@@ -81,7 +81,7 @@ WHERE p.id=(
 /* GET */
 
 app.get('/app/account', (req, res) => {
-  let userEmail = req.body.user;
+  let userEmail = 'jason@gmail.com'; //req.body.user;
   // Test userEmail
   console.log(userEmail);
 
@@ -103,9 +103,14 @@ app.get('/app/account', (req, res) => {
       console.log('Error: ', err);
       res.status(400).send({ code: 1239, message: 'Insert Error: ' + err });
     }
+    // Verify success
+    console.log('Successful database query!');
     // Convert database results to JSON
     let successResponse = JSON.stringify(response.rows);
+    console.log(successResponse);
 
+    // Test sending
+    console.log('sent JSON to client');
     // Send status and response
     res.status(200).send(successResponse);
   });
