@@ -45,47 +45,91 @@ class Account extends Component {
     return (
       <div>
         <div className="container" width="50">
-          <div id="paper" className="container p-5 text-center shadow-lg">
-            <h1>Account Settings</h1>
+          <div className="module col-sm-12 mb-5 p-5 shadow">
+            <h3>Account Settings</h3>
 
             <div className="p-5">
               <form>
-                <label>
-                  Email:
-                  <input type="text" name="email" disabled={this.state.canEdit} />
-                </label>
-                <label>Password:</label>
-                <input type="text" ref="password" name="password" disabled={this.state.canEdit} />
-                <label>
-                  Show Password :
-                  <input type="checkbox" onClick={this.toggleShowPassword} disabled={this.state.canEdit} />
-                </label>
-                <label>
-                  Name:
-                  <input type="text" name="name" disabled={this.state.canEdit} />
-                </label>
-                <label>
-                  Phone:
-                  <input type="text" name="phoneNumber" disabled={this.state.canEdit} />
-                </label>
-                <label>
-                  City, State:
-                  <input type="text" name="location" disabled={this.state.canEdit} />
-                </label>
-                <label>
-                  Facebook:
-                  <input type="text" name="socialMedia" disabled={this.state.canEdit} />
-                </label>
-                <label>
-                  Instagram:
-                  <input type="text" name="socialMedia" disabled={this.state.canEdit} />
-                </label>
-                <br />
-                Preferred Contact Method:
-                <input type="radio" name="contactPref" value="text" disabled={this.state.canEdit} /> Text
-                <input type="radio" name="contactPref" value="email" disabled={this.state.canEdit} /> Email
-                <br />
-                <input type="button" value={this.state.buttonValue} onClick={this.toggleButton} />
+                <h5>User Login Information</h5>
+
+
+                <div className="form-group row ">
+                  <label for="email" className="col-sm-2 col-form-label">Email</label>
+                    <div className="col-sm-6">
+                      <input type="text" name="email" disabled={this.state.canEdit} className="form-control"/>
+                    </div>
+                </div>
+
+
+                <div className="form-group row  ">
+                  <label className="col-sm-2 col-form-label">Password:</label>
+                  <div className="col-sm-6">
+                     <input type="password" ref="password" name="password" disabled={this.state.canEdit} className="form-control"/>
+                     <label className="col-form-label sr-only">Password Toggle :</label>
+                      <input type="checkbox" onClick={this.toggleShowPassword} disabled={this.state.canEdit} /> Show Password
+                    
+                  </div>
+                  
+                </div>
+
+                <hr />
+
+                <div className="form-group row  ">
+                  <label className="col-sm-2 col-form-label">
+                    Name:</label>
+                    <div className="col-sm-6">
+                      <input type="text" name="name" disabled={this.state.canEdit} className="form-control"/>
+                      </div>
+                </div>
+
+                <div className="form-group row  ">
+                  <label className="col-sm-2 col-form-label">
+                    Phone:</label>
+                    <div className="col-sm-6">
+                     <input type="text" name="phoneNumber" disabled={this.state.canEdit} className="form-control"/>
+
+
+                     <div className="row p-2">
+                        Preferred Contact Method:
+                        <label className="px-2">
+                        <input type="radio" name="contactPref" value="text" disabled={this.state.canEdit}/>  Text</label>
+                        <label className="px-2">
+                        <input type="radio" name="contactPref" value="email" disabled={this.state.canEdit}  className="px-2"/> Email
+                        </label>
+                      </div>
+                  </div>
+                  
+                  
+                </div>
+                
+
+
+                <div className="form-group row  ">
+                  <label className="col-sm-2 col-form-label">Location:</label>
+                  <div className="col-sm-6">
+                    <input type="text" name="location" disabled={this.state.canEdit} className="form-control"/>
+                  </div>
+                </div>
+
+                <hr />
+
+                <div className="form-group row ">
+                    <label className="col-sm-2 col-form-label">Facebook:</label>
+                    <div className="col-sm-6">
+                      <input type="text" name="socialMedia" disabled={this.state.canEdit} className="form-control"/>
+                    </div>
+                  </div> 
+                <div className="form-group row ">   
+                      <label className="col-sm-2 col-form-label">Instagram:</label>
+                      <div className="col-sm-6">
+                      <input type="text" name="socialMedia" disabled={this.state.canEdit} className="form-control"/>
+                    </div>
+                </div>
+
+
+                <input type="button" value={this.state.buttonValue} onClick={this.toggleButton} className="btn"/>
+            
+                
               </form>
             </div>
           </div>

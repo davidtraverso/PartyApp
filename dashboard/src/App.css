@@ -20,8 +20,14 @@ h1 {
 }
 
 
-#paper label{
+/* #paper label{
   margin-left: 25px;
+} */
+
+form label {
+  padding-right: 1em !important;
+  text-transform: uppercase;
+  text-align: right;
 }
 
 footer, .events {
