@@ -23,9 +23,13 @@ class Account extends Component {
       const json = await response.json();
       // Test results
       console.log(json[0]);
+
+      // Destructure incoming server response
       const { email, firstName, lastName, location, password, phone } = json[0];
       console.log(email, firstName, lastName);
       let fullName = firstName + ' ' + lastName;
+
+      // Add to component's state
       this.setState({
         email: email,
         name: fullName,
@@ -39,6 +43,7 @@ class Account extends Component {
     request();
   }
 
+  // Let's toggle the password display
   toggleShowPassword = () => {
     var passwordInputbox = this.refs.password;
     if (passwordInputbox.type === 'password') {
@@ -84,7 +89,13 @@ class Account extends Component {
                     Email
                   </label>
                   <div className="col-sm-6">
-                    <input type="text" name="email" disabled={this.state.canEdit} className="form-control" />
+                    <input
+                      type="text"
+                      name="email"
+                      defaultValue={this.state.email}
+                      disabled={this.state.canEdit}
+                      className="form-control"
+                    />
                   </div>
                 </div>
 
@@ -95,11 +106,12 @@ class Account extends Component {
                       type="password"
                       ref="password"
                       name="password"
+                      defaultValue={this.state.password}
                       disabled={this.state.canEdit}
                       className="form-control"
                     />
                     <label className="col-form-label sr-only">Password Toggle :</label>
-                    <input type="checkbox" onClick={this.toggleShowPassword} disabled={this.state.canEdit} /> Show
+                    <input type="checkbox" onClick={this.toggleShowPassword} /> Show
                     Password
                   </div>
                 </div>
@@ -109,14 +121,26 @@ class Account extends Component {
                 <div className="form-group row  ">
                   <label className="col-sm-2 col-form-label">Name:</label>
                   <div className="col-sm-6">
-                    <input type="text" name="name" disabled={this.state.canEdit} className="form-control" />
+                    <input
+                      type="text"
+                      name="name"
+                      defaultValue={this.state.name}
+                      disabled={this.state.name}
+                      className="form-control"
+                    />
                   </div>
                 </div>
 
                 <div className="form-group row  ">
                   <label className="col-sm-2 col-form-label">Phone:</label>
                   <div className="col-sm-6">
-                    <input type="text" name="phoneNumber" disabled={this.state.canEdit} className="form-control" />
+                    <input
+                      type="text"
+                      name="phoneNumber"
+                      defaultValue={this.state.phone}
+                      disabled={this.state.canEdit}
+                      className="form-control"
+                    />
 
                     <div className="row p-2">
                       Preferred Contact Method:
@@ -140,7 +164,13 @@ class Account extends Component {
                 <div className="form-group row  ">
                   <label className="col-sm-2 col-form-label">Location:</label>
                   <div className="col-sm-6">
-                    <input type="text" name="location" disabled={this.state.canEdit} className="form-control" />
+                    <input
+                      type="text"
+                      name="location"
+                      defaultValue={this.state.location}
+                      disabled={this.state.canEdit}
+                      className="form-control"
+                    />
                   </div>
                 </div>
 
