@@ -73,6 +73,7 @@ class LeadAuthentication extends Component {
               <label for="confirm" class="control-label"><h5>Confirm password:</h5></label>
               <input type="password" name="confirm" defaultValue={values.uPassword} className="d-block w-100"/>
              
+             {/* POST request */}
               <input className="w-25 btn btn-lg btn-outline-light submit-item rounded-0"
                 type="button"
                 value="Create your Party!"
