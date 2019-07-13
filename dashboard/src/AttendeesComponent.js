@@ -106,7 +106,7 @@ const Attendees = () => (
                   <li className="list-group-item">Email</li>
                 </ul>
                 <div className="card-body">
-                  <a href="#" className="card-link">Facebook</a>
+                  <a href="#" className="card-link">Facebook</a>cd 
                   <a href="#" className="card-link">Instagram</a>
                 </div>
           </div>
