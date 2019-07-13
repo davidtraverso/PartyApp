@@ -79,7 +79,6 @@ WHERE p.id=(
 
 /* *** ACCOUNT SETTINGS *** */
 /* GET */
-
 app.get('/app/account', (req, res) => {
   let userEmail = 'jason@gmail.com'; //req.body.user;
   // Test userEmail
