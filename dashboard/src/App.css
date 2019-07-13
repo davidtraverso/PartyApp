@@ -55,7 +55,21 @@ hr {
   margin: 5em auto;
 }
 
+.react-datepicker-wrapper {
+  display: inline-block;
+  margin-right: 2%;
+}
+
 /* Bootstrap Overrides */
+input[type=text], input[type=password] {
+  background: transparent;
+  border: 1px solid #FFF;
+  margin-right: 2%;
+  padding: .5em 1em;
+  color: #FFF;
+  line-height: 2em;
+  text-align: center;
+}
 
 .form-control:disabled, .form-control[readonly] {
   background: transparent !important;
@@ -66,4 +80,29 @@ hr {
   padding: .5em 1em;
   color: #FFF !important;
   text-align: left;
+}
+.submit-item:hover, .submit-item:focus {
+  background: #341f97;
+  border-color: #341f97;
+  box-shadow: -1px 0px 10px -2px rgba(0,0,0,0.75);
+  color: #FFF;
+}
+.card, .list-group-item { 
+  background: transparent;
+  border: 0;
+  padding: 0;
+}
+
+.card a {
+  color: #FFF;
+}
+.card a:hover {
+  color: #9980FA;
+}
+
+.card-img-top {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  margin: 0 auto;
 }
