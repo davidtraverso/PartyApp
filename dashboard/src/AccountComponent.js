@@ -12,6 +12,30 @@ class Account extends Component {
     };
   }
 
+  // Let's load the users data as soon as the page loads!
+  componentDidMount() {
+    console.log('run componentDidMount!!!');
+    let url = 'http://localhost:3005/app/account';
+
+    const request = async () => {
+      const response = await fetch(url);
+      const json = await response.json();
+      // Test results
+      console.log(json[0]);
+      const { email, firstName, lastName, location, password, phone } = json[0];
+      console.log(email, firstName, lastName);
+      let fullName = firstName + ' ' + lastName;
+      this.setState({
+        email: email,
+        name: fullName,
+        location: location, 
+        password: password,
+        phone: phone
+      });
+    };
+    request();
+  }
+
   toggleShowPassword = () => {
     var passwordInputbox = this.refs.password;
     if (passwordInputbox.type === 'password') {
@@ -24,7 +48,7 @@ class Account extends Component {
   // Here's the fuction that simply changes the name of the button:
   toggleButton = e => {
     // Let's check the value of the button
-    if (this.state.buttonValue == 'Edit') {
+    if (this.state.buttonValue === 'Edit') {
       // If it already is 'Edit' let's change it
       this.setState({
         buttonValue: 'Submit',
@@ -47,30 +71,30 @@ class Account extends Component {
         <div className="container" width="50">
           <div id="paper" className="container p-5 text-center shadow-lg">
             <h1>Account Settings</h1>
-
+            <p>This.state.password = {this.state.password}</p>
             <div className="p-5">
               <form>
                 <label>
                   Email:
-                  <input type="text" name="email" disabled={this.state.canEdit} />
+                  <input type="text" name="email" defaultValue={this.state.email} disabled={this.state.canEdit} />
                 </label>
                 <label>Password:</label>
-                <input type="text" ref="password" name="password" disabled={this.state.canEdit} />
+                <input type="text" ref="password" name="password" defaultValue={this.state.password} disabled={this.state.canEdit} />
                 <label>
                   Show Password :
-                  <input type="checkbox" onClick={this.toggleShowPassword} disabled={this.state.canEdit} />
+                  <input type="checkbox" onClick={this.toggleShowPassword}  disabled={this.state.canEdit} />
                 </label>
                 <label>
                   Name:
-                  <input type="text" name="name" disabled={this.state.canEdit} />
+                  <input type="text" name="name" defaultValue={this.state.name} disabled={this.state.canEdit} />
                 </label>
                 <label>
                   Phone:
-                  <input type="text" name="phoneNumber" disabled={this.state.canEdit} />
+                  <input type="text" name="phoneNumber" defaultValue={this.state.phone} disabled={this.state.canEdit} />
                 </label>
                 <label>
                   City, State:
-                  <input type="text" name="location" disabled={this.state.canEdit} />
+                  <input type="text" name="location" defaultValue={this.state.location} disabled={this.state.canEdit} />
                 </label>
                 <label>
                   Facebook:
