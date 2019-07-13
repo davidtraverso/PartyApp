@@ -50,7 +50,7 @@ class Account extends Component {
 
             <div className="p-5">
               <form>
-                <h5>User Login Information</h5>
+                <h5>Account Login Information</h5>
 
 
                 <div className="form-group row ">
@@ -74,6 +74,7 @@ class Account extends Component {
 
                 <hr />
 
+                <h5>User Information</h5>
                 <div className="form-group row  ">
                   <label className="col-sm-2 col-form-label">
                     Name:</label>
@@ -112,6 +113,9 @@ class Account extends Component {
                 </div>
 
                 <hr />
+
+
+                <h5>Social Information</h5>
 
                 <div className="form-group row ">
                     <label className="col-sm-2 col-form-label">Facebook:</label>

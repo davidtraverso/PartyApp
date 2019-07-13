@@ -6,6 +6,12 @@ body {
 h1 {
   color: #FFF;
 }
+
+h5 {
+  color: #ff9f43;
+  padding-bottom: 1em;
+}
+
 .navbar-brand {
   color: #FFF !important;
   z-index: 800;
@@ -36,4 +42,28 @@ footer, .events {
 
 footer  .navbar-brand {
   font-size: .9em;
+}
+
+
+/* Dashborad Overrides */
+
+
+hr {
+  max-width: 100%;
+  border-width: 3px;
+  border-color: #9980FA;
+  margin: 5em auto;
+}
+
+/* Bootstrap Overrides */
+
+.form-control:disabled, .form-control[readonly] {
+  background: transparent !important;
+  border: 0;
+  border-bottom: 1px solid #FFF;
+  border-radius: 0;
+  margin: 2%;
+  padding: .5em 1em;
+  color: #FFF !important;
+  text-align: left;
 }
