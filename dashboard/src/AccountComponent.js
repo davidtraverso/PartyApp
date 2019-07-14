@@ -76,8 +76,8 @@ class Account extends Component {
 
     return (
       <div>
-        <div className="container" width="50">
-          <div className="module col-sm-12 mb-5 p-5 shadow">
+        
+          <section className="module col-sm-12 mb-5 p-5 shadow">
             <h3>Account Settings</h3>
 
             <div className="p-5">
@@ -126,7 +126,7 @@ class Account extends Component {
                       type="text"
                       name="name"
                       defaultValue={this.state.name}
-                      disabled={this.state.name}
+                      disabled={this.state.canEdit}
                       className="form-control"
                     />
                   </div>
@@ -193,11 +193,11 @@ class Account extends Component {
                   </div>
                 </div>
 
-                <input type="button" value={this.state.buttonValue} onClick={this.toggleButton} className="btn" />
+                <input type="button" value={this.state.buttonValue} onClick={this.toggleButton} className="w-25 btn btn-lg btn-outline-light submit-item rounded-0" />
               </form>
             </div>
-          </div>
-        </div>
+          </section>
+        
       </div>
     );
   }
