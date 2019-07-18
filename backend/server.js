@@ -44,7 +44,7 @@ app.get('/', (req, res) => res.send('Hello World!'));
 app.get('/app/main', (req, res) => {
   let userEmail = 'david@yahoo.com'; //req.body.user;
   // Test userEmail
-  console.log(userEmail);
+  console.log('Dashboard GET // Query email: ' + userEmail);
 
   let query = `SELECT 
   t.parties_id as "partyID",
@@ -83,7 +83,7 @@ WHERE p.id=(
 app.get('/app/account', (req, res) => {
   let userEmail = 'jason@gmail.com'; //req.body.user;
   // Test userEmail
-  console.log(userEmail);
+  console.log('Account GET // Query email: ' + userEmail);
 
   // Query definition
   let query = `SELECT
@@ -110,7 +110,7 @@ app.get('/app/account', (req, res) => {
     console.log(successResponse);
 
     // Test sending
-    console.log('sent JSON to client');
+    console.log('sent JSON to Account Component');
     // Send status and response
     res.status(200).send(successResponse);
   });
@@ -118,7 +118,9 @@ app.get('/app/account', (req, res) => {
 
 /* PUT */
 app.put('/app/account', (req, res) => {
-  let data = JSON.parse(req.body);
+  console.log('PUT request received.')
+  console.log(req.body);
+  let data = req.body;
   // Test data
   console.log(`PUT succesfully received: ${data}`);
 
@@ -136,7 +138,7 @@ app.put('/app/account', (req, res) => {
       res.status(400).send({ code: 1239, message: 'Insert Error: ' + err });
     }
     console.log(user);
-    res.status(202).send('Successful update of your account, ' + data.name, user);
+    res.status(202).send('Successful update of your account, ' + data.name);
   });
 });
 
