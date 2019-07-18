@@ -1,6 +1,7 @@
 const express = require('express');
 const app = express();
 var morgan = require('morgan');
+morgan('tiny');
 const port = 3005; // eventually add 'process.env.PORT || ' back to this
 
 var bodyParser = require('body-parser');
@@ -115,10 +116,40 @@ app.get('/app/account', (req, res) => {
   });
 });
 
-// PUT
-//
-/* *** SIGN UP ROUTES *** */
+/* PUT */
+app.put('/app/account', (req, res) => {
+  let data = JSON.parse(req.body);
+  // Test data
+  console.log(`PUT succesfully received: ${data}`);
 
+  let query = `UPDATE users
+               SET phone = ${data.phone},
+                   password = '${data.password}'
+               WHERE email = '${data.email}'`;
+  //  Test query
+  console.log(query);
+
+  // Run query
+  client.query(query, function(err, user) {
+    if (err) {
+      console.log('Error: ', err);
+      res.status(400).send({ code: 1239, message: 'Insert Error: ' + err });
+    }
+    console.log(user);
+    res.status(202).send('Successful update of your account, ' + data.name, user);
+  });
+});
+
+/* *** ATTENDEES ROUTES *** */
+// Lamar's GET request goes here:
+//
+//
+//
+//
+//
+//
+
+/* *** SIGN UP ROUTES *** */
 // POST handler for /signUps/Forms React app.
 app.post('/create', function(req, res) {
   let data = req.body;
