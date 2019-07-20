@@ -3,7 +3,8 @@ import React, { Component } from 'react';
 class Home extends Component {
   constructor(props) {
     super(props);
-    this.state = {};
+    this.state = {guest:[]};
+  
   }
 
   // Let's load the party data as soon as the page loads!
@@ -36,8 +37,12 @@ class Home extends Component {
         this.setState({
           bride: brideName
         })
+        
       };
       findBride();
+
+
+
 
       // Add to component's state
       this.setState({
@@ -46,8 +51,27 @@ class Home extends Component {
       });
     };
 
+    
     // Invoke it!
     request();
+
+     // Express the GET request
+    const getRequest = async () => {
+      const getResponse = await fetch(url);
+      const getJSON = await getResponse.json();
+      // Test results
+      console.log('API data:');
+      console.log(getJSON);
+
+  
+      this.setState({
+        guest: getJSON
+      });
+    };
+
+
+
+    getRequest();
   }
 
   render() {
@@ -70,7 +94,32 @@ class Home extends Component {
           <div className="row">
             <div className="module col-sm-12 mb-5 p-5 shadow">
               <h3>Current Attendees</h3>
-              <div id="attendees">List of Attendees</div>
+              <div id="attendees">
+
+              <div className="row text-center py-5">
+
+                    {this.state.guest.map((person, index) => (
+
+
+                      <div className="col-sm-4 py-5" key={index}>
+                        
+                        <div className="card" >
+                          <img src="http://lamarharrisdesigns.com/Coordin8/assets/grooms-party.jpg" className="card-img-top" alt="..."/>
+                            <div className="card-body">
+                              <h5 className="card-title">{person.firstName + person.lastName}</h5>
+                              
+                            </div>
+                           
+                           
+                        </div>
+                        
+                      </div>
+                      ))}
+
+                    </div>
+
+
+              </div>
             </div>
           </div>
         </section>
