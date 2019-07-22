@@ -20,6 +20,35 @@ import "react-datepicker/dist/react-datepicker.css";
          this.handleSubmit = this.handleSubmit.bind(this);
          
     }
+
+      // Let's load the users data as soon as the page loads!
+  componentDidMount() {
+    console.log('run componentDidMount()');
+    let url = 'http://localhost:3005/app/itinerary';
+
+    // Express the GET request
+    const getRequest = async () => {
+      const getResponse = await fetch(url);
+      const getJSON = await getResponse.json();
+      // Test results
+      console.log('API data:');
+      console.log(getJSON[0]);
+
+      // Destructure incoming server response
+      const { event, location, date } = getJSON[0];
+      
+
+      // Add to component's state
+      this.setState({
+        newTodo: event,
+        newLocation: location,
+        startDate: date
+      });
+    };
+
+    // Invoke it!
+    getRequest();
+  }
   
     handleDate(date) {
       this.setState({

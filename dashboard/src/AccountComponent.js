@@ -12,6 +12,7 @@ class Account extends Component {
     };
   }
 
+  
   // Let's load the users data as soon as the page loads!
   componentDidMount() {
     console.log('run componentDidMount()');
