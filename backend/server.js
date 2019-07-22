@@ -151,6 +151,45 @@ app.put('/app/account', (req, res) => {
 //
 //
 
+/* *** ITINERARY ROUTES *** */
+// Jason's GET request goes here:
+
+app.get('/app/itinerary', (req, res) => {
+  let userEmail = 'david@yahoo.com'; //req.body.user;
+  // Test userEmail
+  console.log('Dashboard GET // Query event: ' + userEmail);
+
+  let query = `SELECT
+  e.id as "id",
+  e.event_name as "name",
+  e.event_date as "date",
+  e.event_start as "startTime",
+  e.parties_id as "partyID",
+CONCAT(l.city, ' ,', l.state) as "location"
+FROM events e 
+  JOIN coordin8schema.locations l ON e.event_location_id=l.id 
+  where e.parties_id=100`;
+
+
+  // Run query//
+
+client.query(query, function(err, response) {
+    if (err) {
+      console.log('Error: ', err);
+      res.status(400).send({ code: 1239, message: 'Insert Error: ' + err });
+    }
+    // Convert database results to JSON
+    let successResponse = JSON.stringify(response.rows);
+
+    // Send status and response
+    res.status(200).send(successResponse);
+  });
+});
+
+/* *** END ITINERARY ROUTES *** */
+
+
+
 /* *** SIGN UP ROUTES *** */
 // POST handler for /signUps/Forms React app.
 app.post('/create', function(req, res) {
