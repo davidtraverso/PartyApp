@@ -62,7 +62,17 @@ FROM parties p
   JOIN locations l ON p.locations_id=l.id
 WHERE p.id=(
   SELECT parties_id
-  FROM users WHERE email='${userEmail}')`;
+  FROM users WHERE email='${userEmail}')
+
+  SELECT 
+  u.first_name as "firstName",
+  u.last_name as "lastName",
+  u.phone as "phone",
+  u.email as "email",
+  CONCAT(l.city, ' ,', l.state) as "location",
+  u.roles_id as "role"
+  FROM users u JOIN locations l ON u.locations_id=l.id
+  WHERE u.parties_id=(SELECT parties_id from users where email='jason@gmail.com')`;
 
   // Run query
   client.query(query, function(err, response) {
@@ -142,14 +152,52 @@ app.put('/app/account', (req, res) => {
   });
 });
 
+
+
+
 /* *** ATTENDEES ROUTES *** */
-// Lamar's GET request goes here:
-//
-//
-//
-//
-//
-//
+/* GET */
+app.get('/app/attendees', (req, res) => {
+  let userEmail = 'jason@gmail.com'; //req.body.user;
+  // Test userEmail
+  console.log('Account GET // Query email: ' + userEmail);
+
+  let query = `SELECT 
+  u.first_name as "firstName",
+  u.last_name as "lastName",
+  u.phone as "phone",
+  u.email as "email",
+  CONCAT(l.city, ' ,', l.state) as "location",
+  u.roles_id as "role"
+  FROM users u JOIN locations l ON u.locations_id=l.id
+  WHERE u.parties_id=(SELECT parties_id from users where email='jason@gmail.com')`;
+
+  // Run query
+  client.query(query, function(err, response) {
+    if (err) {
+      console.log('Error: ', err);
+      res.status(400).send({ code: 1239, message: 'Insert Error: ' + err });
+    }
+    // Verify success
+    console.log('Successful database query!');
+    // Convert database results to JSON
+    let successResponse = JSON.stringify(response.rows);
+    console.log(successResponse);
+
+    // Test sending
+    console.log('sent JSON to Account Component');
+    // Send status and response
+    res.status(200).send(successResponse);
+  });
+});
+
+
+
+ 
+
+
+
+
 
 /* *** ITINERARY ROUTES *** */
 // Jason's GET request goes here:
