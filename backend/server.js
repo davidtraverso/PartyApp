@@ -193,10 +193,6 @@ app.get('/app/attendees', (req, res) => {
 
 
 
- 
-
-
-
 
 
 /* *** ITINERARY ROUTES *** */
