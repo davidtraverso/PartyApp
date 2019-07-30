@@ -20,6 +20,43 @@ import "react-datepicker/dist/react-datepicker.css";
          this.handleSubmit = this.handleSubmit.bind(this);
          
     }
+
+      // Let's load the users data as soon as the page loads!
+  componentDidMount() {
+    console.log('run componentDidMount()');
+    let url = 'http://localhost:3005/app/itinerary';
+
+    // Express the GET request
+    const getRequest = async () => {
+      const getResponse = await fetch(url);
+      console.log(getResponse);
+      const getJSON = await getResponse.json();
+      // Test results
+      console.log('API data:');
+      console.log(getJSON);
+    
+      // Need to convert this Array of objects into an array of arrays
+
+      // const todo = Object.keys(todolist).map(i => todolist[i]);
+      var arrayOfObjects = getJSON
+      var arrayContainer = []
+      var result = arrayOfObjects.map(function(eventObject){
+        arrayContainer.push(Object.values(eventObject));
+        })
+
+
+      console.log(result);
+
+
+      // Add to component's state
+      this.setState({
+        todos: arrayContainer
+      });
+    };
+
+    // Invoke it!
+    getRequest();
+  }
   
     handleDate(date) {
       this.setState({
@@ -38,19 +75,12 @@ import "react-datepicker/dist/react-datepicker.css";
     event.preventDefault();
     const todos = [...this.state.todos, [this.state.newTodo, this.state.newLocation, this.state.startDate.toLocaleTimeString(), this.state.startDate.toDateString()]];
     
-    
     this.setState({todos, newTodo: '', newLocation: '', newTime: '', startDate: ''});
     // console.log(newTodo)
     
   }
   
     render() {
-
-      const TodoItem = ({text}) => (
-          <li>{text}</li>
-      )
-
-      this.handleSubmit = this.handleSubmit.bind(this);
       // const todolist = this.state.todos; 
       const todolist = this.state.todos.map((todo, index) => (
       
