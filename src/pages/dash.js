@@ -1,14 +1,14 @@
 import React, { Component }  from 'react';
-import './Dashboard.css';
+import './dashboard/Dashboard.css';
 import {BrowserRouter as Router, Route, Link} from 'react-router-dom';
-import Home from './components/HomeComponent';
-import Account from './components/AccountComponent';
-import Itinerary from './components/ItineraryComponent';
-import Attendees from './components/AttendeesComponent';
-import Locations from './components/LocationsComponent';
-import Messages from './components/MessagesComponent';
+import Home from './dashboard/components/HomeComponent';
+import Account from './dashboard/components/AccountComponent';
+import Itinerary from './dashboard/components/ItineraryComponent';
+import Attendees from './dashboard/components/AttendeesComponent';
+import Locations from './dashboard/components/LocationsComponent';
+import Messages from './dashboard/components/MessagesComponent';
 
-class App extends Component {
+class Dashboard extends Component {
   render(){
     return (
       <Router>
@@ -81,4 +81,4 @@ class App extends Component {
  }
 
 
-export default App;
+export default Dashboard;

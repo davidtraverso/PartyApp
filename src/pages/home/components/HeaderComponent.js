@@ -14,6 +14,8 @@ class Header extends Component {
         <ul id="sub-menu" className="list-inline">
           <li className="list-inline-item"><Link to="/signup" className="btn text-light">Start Planning</Link></li>
           <li className="list-inline-item text-light">|</li>
+          <li className="list-inline-item"><Link to="/dash" className="btn text-light">Dashboard</Link></li>
+          <li className="list-inline-item text-light">|</li>
           <li className="list-inline-item"><button type="button" data-toggle="modal" data-target="#loginModule" className="btn text-light">Login</button></li>
         </ul>
         </div>
