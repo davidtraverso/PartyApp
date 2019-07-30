@@ -17,7 +17,7 @@ class MainPage extends Component {
         <button type="button" id="sidebarCollapse" className="btn btn-link">
             <i className="fas fa-bars"></i>
         </button>
-        <div class="overlay"></div>
+        <div className="overlay"></div>
         <Header />
         <Main />
         <Footer />
