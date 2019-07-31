@@ -128,7 +128,7 @@ app.get('/app/account', (req, res) => {
 
 /* PUT */
 app.put('/app/account', (req, res) => {
-  console.log('PUT request received.')
+  console.log('PUT request received.');
   console.log(req.body);
   let data = req.body;
   // Test data
@@ -151,9 +151,6 @@ app.put('/app/account', (req, res) => {
     res.status(202).send('Successful update of your account, ' + data.name);
   });
 });
-
-
-
 
 /* *** ATTENDEES ROUTES *** */
 /* GET */
@@ -191,10 +188,6 @@ app.get('/app/attendees', (req, res) => {
   });
 });
 
-
-
-
-
 /* *** ITINERARY ROUTES *** */
 // Jason's GET request goes here:
 
@@ -214,10 +207,9 @@ FROM events e
   JOIN coordin8schema.locations l ON e.event_location_id=l.id 
   where e.parties_id=100`;
 
-
   // Run query//
 
-client.query(query, function(err, response) {
+  client.query(query, function(err, response) {
     if (err) {
       console.log('Error: ', err);
       res.status(400).send({ code: 1239, message: 'Insert Error: ' + err });
@@ -232,8 +224,6 @@ client.query(query, function(err, response) {
 
 /* *** END ITINERARY ROUTES *** */
 
-
-
 /* *** SIGN UP ROUTES *** */
 // POST handler for /signUps/Forms React app.
 app.post('/create', function(req, res) {
@@ -241,16 +231,45 @@ app.post('/create', function(req, res) {
   // Test data
   console.log(data);
 
-  let query = `INSERT INTO parties 
-                      (id, party_type, party_name, start_month, start_year, locations_id) 
-                  VALUES (DEFAULT, '${data.type}', '${data.name}', ${data.month}, ${
-    data.year
-  }, (SELECT id FROM locations WHERE city='${data.city}'));
-  INSERT INTO users (id, first_name, last_name, phone, email, password, parties_id, locations_id, roles_id) 
-  VALUES (DEFAULT, '${data.uName}', '', ${data.uPhone}, '${data.uEmail}', '${data.uPassword}', 
-  (SELECT id FROM parties WHERE party_name='${data.name}'), 
-  (SELECT id FROM locations WHERE city='${data.city}'),
-  1)`;
+  let query = `
+    INSERT INTO parties 
+      (id, 
+      party_type, 
+      party_name, 
+      start_month, 
+      start_year, 
+      locations_id) 
+    VALUES 
+      (DEFAULT, 
+      '${data.type}', 
+      $$${data.name}$$, 
+      ${data.month}, 
+      ${data.year}, 
+        (SELECT id 
+        FROM locations 
+        WHERE city='${data.city}')
+      );
+
+    INSERT INTO users 
+      (id, 
+      first_name, 
+      last_name, 
+      phone, 
+      email, 
+      password, 
+      parties_id, 
+      locations_id, 
+      roles_id) 
+    VALUES 
+      (DEFAULT, 
+      $$${data.uName}$$, 
+      '', 
+      ${data.uPhone}, 
+      '${data.uEmail}', 
+      '${data.uPassword}', 
+      (SELECT id FROM parties WHERE party_name='${data.name}'), 
+      (SELECT id FROM locations WHERE city='${data.city}'),
+      1)`;
   //  Test query
   console.log(query);
 
