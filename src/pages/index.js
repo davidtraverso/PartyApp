@@ -14,10 +14,7 @@ class MainPage extends Component {
          <div id="hero"></div>
         <Login /> 
         <Nav />
-        <button type="button" id="sidebarCollapse" className="btn btn-link">
-            <i className="fas fa-bars"></i>
-        </button>
-        <div className="overlay"></div>
+        
         <Header />
         <Main />
         <Footer />

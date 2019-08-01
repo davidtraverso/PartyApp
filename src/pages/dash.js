@@ -17,14 +17,12 @@ class Dashboard extends Component {
   render(){
     return (
       <Router>
-        <div>
+        <div className="app">
           <Nav />
-          <button type="button" id="sidebarCollapse" className="btn btn-link">
-              <i className="fas fa-bars"></i>
-          </button>
-          <div className="overlay"></div>
+          
+          
           <Header />
-          <div className="App py-5">
+          <div className="py-5">
               <div className="container">
                     <Route exact={true} path="/dash" component={Home} />
                     <Route path="/account" component={Account} />

@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css?family=Raleway:300,400,400i,700|Shrikhand&display=swap');
 
 #page {
-  background: #222f3e url(http://lamarharrisdesigns.com/Coordin8/assets/lights.jpg);
+  background: #222f3e url(/assets/lights.jpg);
   background-position: center; -webkit-background-size: cover; -moz-background-size: cover;  -o-background-size: cover; 
   background-size: cover;
   font-family: 'Raleway', sans-serif !important;
