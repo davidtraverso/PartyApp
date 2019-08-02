@@ -59,9 +59,9 @@ class PartyDate extends Component {
                             </p>
                             
                                 
-                                    {months.map(month => (
-                                    <GridListTile key={month} cols={1}>
-                                        <input className="btn btn-outline-light submit-item rounded-0"
+                                    {months.map((month, index) => (
+                                    <GridListTile key={index} cols={1}>
+                                        <input name={index} className="btn btn-outline-light submit-item rounded-0"
                                          type="button"
                                          value={month}
                                          onClick={handleChange('month')} />
