@@ -88,3 +88,9 @@ typings/
 
 # DynamoDB Local files
 .dynamodb/
+
+# My ignored files:
+.vscode/
+.cmd
+.sql
+.pgsql
