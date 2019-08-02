@@ -2,6 +2,8 @@ const express = require('express');
 const app = express();
 var morgan = require('morgan');
 morgan('tiny');
+const passport = require('passport');
+require('./config/passport')(passport);
 const port = 3005; // eventually add 'process.env.PORT || ' back to this
 
 var bodyParser = require('body-parser');
@@ -12,37 +14,48 @@ app.use(bodyParser.urlencoded({ extended: true }));
 var cors = require('cors');
 app.use(cors());
 
-// PostgreSQL connection
-const { Pool, Client } = require('pg');
+// Database connection moved to Lines 1-19 in ./config/db.js
+const client = require('./config/db');
 
-const client = new Client({
-  user: 'coordin8',
-  host: 'pgdb.accsoftwarebootcamp.com',
-  database: 'accsoftwarebootcamp', // Need to confirm this is correct (how to get to coordin8)
-  password: 'coordin8_rocks_2019', // ** Need to config this
-  port: 5432
+// console.log('client.query is ', client.query)
+
+// Passport stuff
+// Middleware....? shrug.
+app.use(passport.initialize());
+app.use(passport.session());
+// Login session initiaization
+passport.serializeUser((user, done) => {
+  console.log('this happened!!!');
+  console.log(user);
+  done(null, user.id);
 });
 
-client
-  .connect()
-  .then(function() {
-    console.log(`PG Connected to ${client.database} dB`);
-  })
-  .catch(function(err) {
-    console.error('PG Connection error', err.stack);
+// Logout session disposal
+passport.deserializeUser((id, cb) => {
+  db.query('SELECT id, username, type FROM users WHERE id = $1', [parseInt(id, 10)], (err, results) => {
+    if (err) {
+      winston.error('Error when selecting user on session deserialize', err);
+      return cb(err);
+    }
+
+    cb(null, results.rows[0]);
   });
+});
+
+// bcrypt
+const bcrypt = require('bcrypt');
+const saltRounds = 12;
 
 // ROUTES
 app.get('/', (req, res) => res.send('Hello World!'));
-//
-//
-//
 //
 
 /* *** DASHBOARD ROUTES *** */
 // GET for main landing page
 app.get('/app/main', (req, res) => {
-  let userEmail = 'david@yahoo.com'; //req.body.user;
+  let userEmail = req.body.user || 'david@yahoo.com';
+  console.log(`req.user: ${userEmail}`);
+
   // Test userEmail
   console.log('Dashboard GET // Query email: ' + userEmail);
 
@@ -62,7 +75,7 @@ FROM parties p
   JOIN locations l ON p.locations_id=l.id
 WHERE p.id=(
   SELECT parties_id
-  FROM users WHERE email='${userEmail}')
+  FROM users WHERE email='${userEmail}');
 
   SELECT 
   u.first_name as "firstName",
@@ -72,19 +85,26 @@ WHERE p.id=(
   CONCAT(l.city, ' ,', l.state) as "location",
   u.roles_id as "role"
   FROM users u JOIN locations l ON u.locations_id=l.id
-  WHERE u.parties_id=(SELECT parties_id from users where email='jason@gmail.com')`;
+  WHERE u.parties_id=(SELECT parties_id from users where email='${userEmail}');`;
 
   // Run query
   client.query(query, function(err, response) {
+    console.log(`The query sent in the client.query run is: ${query}`);
     if (err) {
       console.log('Error: ', err);
       res.status(400).send({ code: 1239, message: 'Insert Error: ' + err });
-    }
-    // Convert database results to JSON
-    let successResponse = JSON.stringify(response.rows);
+    } else if (response) {
+      console.log(`db response is: ${response}`);
+      // Convert database results to JSON
+      let successResponse = JSON.stringify(response[0]['rows']);
+      console.log(`db response is: ${successResponse}`);
 
-    // Send status and response
-    res.status(200).send(successResponse);
+      // Send status and response
+      res.status(200).send(successResponse);
+    } else {
+      console.log('No error and no db response. :/');
+      res.status(404).send('no db response found');
+    }
   });
 });
 
@@ -109,6 +129,7 @@ app.get('/app/account', (req, res) => {
 
   // Run query
   client.query(query, function(err, response) {
+    console.log(`The query sent in the client.query run is: ${query}`);
     if (err) {
       console.log('Error: ', err);
       res.status(400).send({ code: 1239, message: 'Insert Error: ' + err });
@@ -194,7 +215,7 @@ app.get('/app/attendees', (req, res) => {
 app.get('/app/itinerary', (req, res) => {
   let userEmail = 'david@yahoo.com'; //req.body.user;
   // Test userEmail
-  console.log('Dashboard GET // Query event: ' + userEmail);
+  console.log('Itinerary GET // Query event: ' + userEmail);
 
   let query = `SELECT
   e.id as "id",
@@ -231,23 +252,29 @@ app.post('/create', function(req, res) {
   // Test data
   console.log(data);
 
+  // Hash password
+  var hash = bcrypt.hashSync(data.uPassword, saltRounds);
+  console.log(`The hash begins: ${hash.substr(0, 10)}`);
+
   let query = `
     INSERT INTO parties 
       (id, 
       party_type, 
-      party_name, 
+      party_name,
+      start_date,
       start_month, 
       start_year, 
       locations_id) 
     VALUES 
       (DEFAULT, 
-      '${data.type}', 
-      $$${data.name}$$, 
+      $$${data.type}$$, 
+      $$${data.name}$$,
+      $$${data.startDate}$$,
       ${data.month}, 
-      ${data.year}, 
+      ${data.startYear}, 
         (SELECT id 
         FROM locations 
-        WHERE city='${data.city}')
+        WHERE city='${data.city}' LIMIT 1)
       );
 
     INSERT INTO users 
@@ -258,7 +285,8 @@ app.post('/create', function(req, res) {
       email, 
       password, 
       parties_id, 
-      locations_id, 
+      locations_id,
+      bio, 
       roles_id) 
     VALUES 
       (DEFAULT, 
@@ -266,9 +294,10 @@ app.post('/create', function(req, res) {
       '', 
       ${data.uPhone}, 
       '${data.uEmail}', 
-      '${data.uPassword}', 
-      (SELECT id FROM parties WHERE party_name='${data.name}'), 
-      (SELECT id FROM locations WHERE city='${data.city}'),
+      '${hash}', 
+      (SELECT id FROM parties WHERE party_name='${data.name}' LIMIT 1), 
+      (SELECT id FROM locations WHERE city='${data.city}' LIMIT 1),
+      $$${data.uBio}$$,
       1)`;
   //  Test query
   console.log(query);
@@ -280,16 +309,16 @@ app.post('/create', function(req, res) {
       res.status(400).send({ code: 1239, message: 'Insert Error: ' + err });
     }
     console.log(party);
-    res.status(201).send('Successful creation of:' + data.name, party);
+    res.status(201).send('Successful creation of:' + data.name);
   });
 });
 
 /* *** Static site Login *** */
 app.post('/login', (req, res, next) => {
   passport.authenticate('local', {
-    successRedirect: '/dashboard', // Need to update URL
-    failureRedirect: '/users/login', // How to redirect to same page with same form visible
-    failureFlash: true // Need to set up flash messages
+    successRedirect: '/dash', // Why doesn't this redirect the browser????
+    failureRedirect: '/', // How to redirect to same page with same form visible
+    failureFlash: false // Need to set up flash messages
   })(req, res, next);
 });
 
