@@ -12,6 +12,7 @@ class LeadAuthentication extends Component {
   createParty = event => {
     var url = 'http://localhost:3005/create';
     var data = this.props.values; // state is assigned to 'data' variable
+    data.month = this.props.values.startMonth || this.props.values.month; // determines month based on calendar picker OR month button selection
 
     fetch(url, {
       method: 'POST',
@@ -23,7 +24,7 @@ class LeadAuthentication extends Component {
       .then(res => res.json())
       .then(response => console.log('Success:', JSON.stringify(response)))
       .catch(error => console.error('Error:', error));
-  }
+  };
 
   // Function to go to next form
   continue = event => {
@@ -43,49 +44,55 @@ class LeadAuthentication extends Component {
       <div>
         <p>LeadAuthentication Form</p>
         <Container maxWidth="md">
-            <div id="paper" className="container p-5 text-center shadow-lg"> 
-           
-              <h1>
-                {values.uName}, let's create your account and start
-                party planning!
-              </h1>
+          <div id="paper" className="container p-5 text-center shadow-lg">
+            <h1>{values.uName}, let's create your account and start party planning!</h1>
 
-               <label for="email" class="control-label"><h5>Your email:</h5></label>
-              <input
-                type="email"
-                name="email"
-                onChange={handleChange('uEmail')}
-                value={values.uEmail}
-                placeholder={values.uEmail}
-                disabled={true}
-                className="d-block w-100"
-              />
-              
-              <label for="password" class="control-label"><h5>Your password:</h5></label>
-              <input
-                type="password"
-                name="password"
-                onChange={handleChange('uPassword')}
-                defaultValue={values.uPassword}
-                className="d-block w-100"
-              />
-              
-              <label for="confirm" class="control-label"><h5>Confirm password:</h5></label>
-              <input type="password" name="confirm" defaultValue={values.uPassword} className="d-block w-100"/>
-             
-             {/* POST request */}
-              <input className="w-25 btn btn-lg btn-outline-light submit-item rounded-0"
-                type="button"
-                value="Create your Party!"
-                onClick={this.createParty}
-                
-              />
-              
+            <label for="email" class="control-label">
+              <h5>Your email:</h5>
+            </label>
+            <input
+              type="email"
+              name="email"
+              onChange={handleChange('uEmail')}
+              value={values.uEmail}
+              placeholder={values.uEmail}
+              disabled={true}
+              className="d-block w-100"
+            />
+
+            <label class="control-label">
+              <h5>Your password:</h5>
+            </label>
+            <input
+              type="password"
+              onChange={handleChange('uPassword')}
+              defaultValue={values.uPassword}
+              className="d-block w-100"
+            />
+
+            <label class="control-label">
+              <h5>Confirm password:</h5>
+            </label>
+            <input type="password" defaultValue={values.uPassword} className="d-block w-100" />
+
+            {/* POST request */}
+            <input
+              className="w-50 btn btn-lg btn-outline-light submit-item rounded-0"
+              type="button"
+              value="Create your Party!"
+              onClick={this.createParty}
+            />
+
+            <br />
             {/* Navigation Buttons */}
-            <input className="w-25 btn btn-lg btn-outline-light submit-item rounded-0" type="button" label="Back" value="Back" onClick={this.back} />
+            <input
+              className="w-25 btn btn-lg btn-outline-light submit-item rounded-0"
+              type="button"
+              label="Back"
+              value="Back"
+              onClick={this.back}
+            />
           </div>
-          
-          
         </Container>
       </div>
     );

@@ -25,39 +25,35 @@ class LeadDetails extends Component {
                        
                         <h1>Tell us about yourself:</h1>
 
-                        <label for="name" class="control-label sr-only">Your name:</label>
+                        <label className="control-label sr-only">Your name:</label>
                         <input type="text" 
-                          name="name"
                           onChange={handleChange('uName')}
                           placeholder="Your Name"
                           defaultValue={values.uName}
                           className="d-block w-100"
                          />
                        
-                        <label for="email" class="control-label sr-only">Your email:</label>
+                        <label className="control-label sr-only">Your email:</label>
                         <input type="text"
-                          name="email"
                           onChange={handleChange('uEmail')}
                           placeholder="Your Email"
                           defaultValue={values.uEmail}
                           className="d-block w-100"
                          />
                      
-                        <label for="phone" class="control-label sr-only">Your phone:</label>
+                        <label className="control-label sr-only">Your phone:</label>
                         <input type="text"
-                          name="phone"
                           onChange={handleChange('uPhone')}
                           placeholder="Your Phone Number"
                           defaultValue={values.uPhone}
                           className="d-block w-100"
                          />
                      
-                        <label for="residence" class="control-label"><h5>Your city of residence:</h5></label>
+                        <label for="residence" className="control-label"><h5>Your city of residence:</h5></label>
                         <Geosuggest />
                         
-                        <label for="relation" class="control-label"><h5>How do you know {values.bride}:</h5></label>
+                        <label className="control-label"><h5>How do you know {values.bride}:</h5></label>
                         <input type="text"
-                          name="relation"
                           onChange={handleChange('uBio')}
                           placeholder="Relationship?"
                           defaultValue={values.uBio}
