@@ -1,6 +1,6 @@
 
 $(document).ready(function(){
-	
+		
 		$('body').scrollspy({
 				target: '#mainNav',
 				offset: 150
@@ -94,5 +94,6 @@ $(document).ready(function(){
 				}
 			});
 	
-});
 		
+});
+

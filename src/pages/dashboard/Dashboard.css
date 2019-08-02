@@ -2,7 +2,9 @@ body {
   background: #2c2c54;
   color: #FFF
 }
-
+.app {
+  background: url(/assets/shapes.png) bottom right no-repeat;
+}
 h1 {
   color: #FFF;
 }
@@ -105,4 +107,15 @@ input[type=text], input[type=password] {
   height: 200px;
   border-radius: 50%;
   margin: 0 auto;
+}
+#sidebar {
+  overflow: visible;
+}
+#sidebar.active {
+  left: 0;
+  overflow: visible;
+}
+.overlay.active {
+  display: block;
+  opacity: 1;
 }

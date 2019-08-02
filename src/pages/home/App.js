@@ -1,13 +1,16 @@
 import React, { Component }  from 'react';
+import './Home.css';
 import AnchorLink from 'react-anchor-link-smooth-scroll'
 
 
 class App extends Component {
   render(){
+	  
     return (
       <div>
-
-      <section className="masthead text-center d-flex">
+		  <div id="hero" className="test"><div className="hero-area"><video autoPlay="true" loop="true" muted="" className="hero-video"><source src="/assets/video/hero-video.mp4" type="video/mp4"/></video></div></div>
+      	
+			<section className="masthead text-center d-flex">
             <div className="container my-auto">
             <div className="row">
               <div className="col-lg-10 mx-auto">
@@ -20,9 +23,9 @@ class App extends Component {
               </div>
             </div>
             </div>
-          </section>
+          </section> 
 
-		  <section id="about" className="bg-white marketing-text large-space">
+		  <section id="about" className="marketing-text large-space">
 				<div className="container-fluid large-space">
 					<div className="row featurette large-space">
 					  <div className="col-md-7 px-5 my-auto">
@@ -31,7 +34,7 @@ class App extends Component {
 						<AnchorLink className="btn btn-lg btn-outline-dark rounded-pill" href="#how" role="button">HOW?</AnchorLink>
 					  </div>
 					  <div className="col-md-5 p-0">
-						<img className="featurette-image img-fluid mx-auto img-responsive" src="assets/mock-ups.jpg" alt="Kid with thumb up - image"/>
+						<img className="featurette-image img-fluid mx-auto img-responsive" src="assets/mock-ups.png" alt="Kid with thumb up - image"/>
 					  </div>
 					</div>
 				</div>	
