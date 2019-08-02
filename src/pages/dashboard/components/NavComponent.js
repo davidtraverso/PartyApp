@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import {BrowserRouter as Router, Link} from 'react-router-dom';
+import { Link } from "react-router-dom";
 
 class Nav extends Component {
       constructor(props) {
@@ -20,8 +20,8 @@ class Nav extends Component {
       }
 
    return (
-      
-    <Router>
+      <div>
+   
           <button type="button" id="sidebarCollapse" className="btn btn-link" onClick={this.toggle.bind(this)}>
               <i className="fas fa-bars"></i>
           </button>
@@ -37,7 +37,7 @@ class Nav extends Component {
                 </ul>
         </div>
         <div className={overClass.join(' ')}></div>
-  </Router>
+    </div>
    );
   }
 

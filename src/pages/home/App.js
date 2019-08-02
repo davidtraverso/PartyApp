@@ -8,7 +8,7 @@ class App extends Component {
 	  
     return (
       <div>
-		  <div id="hero" className="test"><div className="hero-area"><video autoPlay="true" loop="true" muted="" className="hero-video"><source src="/assets/video/hero-video.mp4" type="video/mp4"/></video></div></div>
+		  {/* <div id="hero" className="test"><div className="hero-area"><video autoPlay="true" loop="true" muted="" className="hero-video"><source src="/assets/video/hero-video.mp4" type="video/mp4"/></video></div></div> */}
       	
 			<section className="masthead text-center d-flex">
             <div className="container my-auto">

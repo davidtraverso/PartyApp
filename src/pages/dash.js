@@ -1,10 +1,9 @@
 import React, { Component }  from 'react';
 import './dashboard/Dashboard.css';
-import {BrowserRouter as Router, Route, Link} from 'react-router-dom';
+import {BrowserRouter as Router, Route, Switch, Link} from 'react-router-dom';
 
 import Nav from './dashboard/components/NavComponent';
 import Header from './dashboard/components/HeaderComponent';
-import Main from './home/App';
 import Footer from './dashboard/components/FooterComponent';
 import Home from './dashboard/components/HomeComponent';
 import Account from './dashboard/components/AccountComponent';
@@ -17,27 +16,30 @@ class Dashboard extends Component {
   render(){
     return (
       <Router>
+       
         <div className="app">
+
           <Nav />
-          
-          
           <Header />
+
           <div className="py-5">
-              <div className="container">
+              <div className="container"> 
+                 <Switch>
                     <Route exact={true} path="/dash" component={Home} />
-                    <Route path="/account" component={Account} />
-                    <Route path="/itinerary" component={Itinerary} />
-                    <Route path="/attendees" component={Attendees} />
-                    <Route path="/locations" component={Locations} />
-                    <Route path="/messages" component={Messages} />
+                    <Route exact path="/account" component={Account} />
+                    <Route exact path="/itinerary" component={Itinerary} />
+                    <Route exact path="/attendees" component={Attendees} />
+                    <Route exact path="/locations" component={Locations} />
+                    <Route exact path="/messages" component={Messages} />
+                  </Switch>  
               </div>
             </div> 
             
           <Footer />
-              
-          
+
         </div>
-        </Router>
+        
+      </Router>
     
     )
   }
