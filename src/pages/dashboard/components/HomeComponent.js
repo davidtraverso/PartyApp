@@ -3,8 +3,7 @@ import React, { Component } from 'react';
 class Home extends Component {
   constructor(props) {
     super(props);
-    this.state = {guest:[]};
-  
+    this.state = { guest: [] };
   }
 
   // Let's load the party data as soon as the page loads!
@@ -21,7 +20,8 @@ class Home extends Component {
       console.log(json);
 
       // Destructure incoming server response
-      const { partyName, partyLocation } = json[0];
+      const { partyName, partyLocation, partyDate } = json[0];
+      console.log(`partyDate : ${partyDate}`);
 
       // Function to find the bride
       const findBride = async () => {
@@ -32,30 +32,26 @@ class Home extends Component {
         // Test that a bride was found:
         console.log(bride.firstName + bride.lastName);
         let brideName = bride.firstName + ' ' + bride.lastName;
-        
+
         // Set state
         this.setState({
           bride: brideName
-        })
-        
+        });
       };
       findBride();
-
-
-
 
       // Add to component's state
       this.setState({
         name: partyName,
-        location: partyLocation
+        location: partyLocation,
+        date: partyDate
       });
     };
 
-    
     // Invoke it!
     request();
 
-     // Express the GET request
+    // Express the GET request
     const getRequest = async () => {
       const getResponse = await fetch(url);
       const getJSON = await getResponse.json();
@@ -63,18 +59,44 @@ class Home extends Component {
       console.log('API data:');
       console.log(getJSON);
 
-  
       this.setState({
         guest: getJSON
       });
     };
 
-
-
     getRequest();
+
+    // Get avatars from UI Faces
+    const getAvatars = async () => {
+      let url = 'https://uifaces.co/api';
+
+      const getResponse = await fetch(url, {
+        method: 'GET',
+        headers: {
+          'X-API-KEY': '6dae8335c9a782f74afc3e849e1b67'
+        }
+      });
+      const getJSON = await getResponse.json();
+
+      // Destructure just the photos:
+      let avatars = [];
+      getJSON.map(obj => {
+        return avatars.push(obj.photo);
+      });
+      console.log(`avatars: ${avatars}`);
+
+      // Then setState
+      this.setState({
+        avatars: avatars
+      });
+    };
+
+    getAvatars();
   }
 
   render() {
+    var date = this.state.date;
+
     return (
       <div>
         <section>
@@ -84,7 +106,7 @@ class Home extends Component {
               <div id="partyName">
                 {'"' + this.state.name + '"'} is celebrating {this.state.bride}
               </div>
-              <div id="partyDate">Party Date</div>
+              <div id="partyDate">{date}</div>
               <div id="partyLocation">{this.state.location}</div>
             </div>
           </div>
@@ -95,30 +117,22 @@ class Home extends Component {
             <div className="module col-sm-12 mb-5 p-5 shadow">
               <h3>Current Attendees</h3>
               <div id="attendees">
-
-              <div className="row text-center py-5">
-
-                    {this.state.guest.map((person, index) => (
-
-
-                      <div className="col-sm-4 py-5" key={index}>
-                        
-                        <div className="card" >
-                          <img src="http://lamarharrisdesigns.com/Coordin8/assets/grooms-party.jpg" className="card-img-top" alt="..."/>
-                            <div className="card-body">
-                              <h5 className="card-title">{person.firstName + person.lastName}</h5>
-                              
-                            </div>
-                           
-                           
+                <div className="row text-center py-5">
+                  {this.state.guest.map((person, index) => (
+                    <div className="col-sm-4 py-5" key={index}>
+                      <div className="card">
+                        <img
+                          src={'http://lamarharrisdesigns.com/Coordin8/assets/grooms-party.jpg'}
+                          className="card-img-top"
+                          alt="..."
+                        />
+                        <div className="card-body">
+                          <h5 className="card-title">{person.firstName + ' ' + person.lastName}</h5>
                         </div>
-                        
                       </div>
-                      ))}
-
                     </div>
-
-
+                  ))}
+                </div>
               </div>
             </div>
           </div>
