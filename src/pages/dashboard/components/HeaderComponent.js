@@ -5,7 +5,7 @@ class Header extends Component {
   render() {
     
    return (
-    <nav id="mainNav" className="d-flex justify-content-between">
+    <nav id="mainNav" className="d-flex py-2 justify-content-between">
             <a id="logo" className="navbar-brand">Coordin8</a>
             <ul id="sub-menu" className="list-inline">
               <li className="list-inline-item">

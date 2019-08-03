@@ -19,8 +19,7 @@ class LeadDetails extends Component {
 
         return(
             <div>
-              <p>LeadDetails Form</p>
-              <Container maxWidth="md">
+  
                   <div id="paper" className="container p-5 text-center shadow-lg">  
                        
                         <h1>Tell us about yourself:</h1>
@@ -74,9 +73,7 @@ class LeadDetails extends Component {
                     />
                     </div>
                    
-                    
-                    
-                </Container>
+
             </div>
         );
     }

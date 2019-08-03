@@ -26,8 +26,8 @@ class PartyLocation extends Component {
 
     return (
       <div>
-        <p>PartyLocation Form</p>
-        <Container maxWidth="md">
+       
+        
           <div id="paper" className="container p-5 text-center shadow-lg">
             <h1>Where are we doing this?</h1>
 
@@ -56,7 +56,7 @@ class PartyLocation extends Component {
               onClick={this.continue}
             />
           </div>
-        </Container>
+       
       </div>
     );
   }

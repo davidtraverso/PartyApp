@@ -3,10 +3,10 @@ $(document).ready(function(){
 		
 		$('body').scrollspy({
 				target: '#mainNav',
-				offset: 150
+				offset: 50
 			  });
 	
-	var navbarCollapse = function() {
+		var navbarCollapse = function() {
 				if ($("#mainNav").offset().top > 300) {
 				  $("#mainNav").addClass("navbar-shrink");
 				  $("#logo").addClass("navbar-shrink");	
@@ -40,29 +40,29 @@ $(document).ready(function(){
 					$('.overlay').toggleClass('active');
 				});
 	
-	// Smooth scrolling using jQuery easing
-			  $('a.js-scroll-trigger[href*="#"]:not([href="#"])').click(function() {
-				if (location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '') && location.hostname == this.hostname) {
-				  var target = $(this.hash);
-				  target = target.length ? target : $('[name=' + this.hash.slice(1) + ']');
-				  if (target.length) {
-					$('html, body').animate({
-					  scrollTop: (target.offset().top - 250)
-					}, 1000, "easeInOutExpo");
-					return false;
-				  }
-				}
-			  });
+	// // Smooth scrolling using jQuery easing
+	// 		  $('a.js-scroll-trigger[href*="#"]:not([href="#"])').click(function() {
+	// 			if (location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '') && location.hostname == this.hostname) {
+	// 			  var target = $(this.hash);
+	// 			  target = target.length ? target : $('[name=' + this.hash.slice(1) + ']');
+	// 			  if (target.length) {
+	// 				$('html, body').animate({
+	// 				  scrollTop: (target.offset().top - 150)
+	// 				}, 1000, "easeInOutExpo");
+	// 				return false;
+	// 			  }
+	// 			}
+	// 		  });
 
 			
 			
-			// Vide - Video Background Settings
-			  $('#hero').vide({
-				mp4: "assets/video/hero-video.mp4",
-				poster: "assets/bridal-party.jpg"
-			  }, {
-				posterType: 'jpg'
-			  });
+			// // Vide - Video Background Settings
+			//   $('#hero').vide({
+			// 	mp4: "assets/video/hero-video.mp4",
+			// 	poster: "assets/bridal-party.jpg"
+			//   }, {
+			// 	posterType: 'jpg'
+			//   });
 		
 			 
 			

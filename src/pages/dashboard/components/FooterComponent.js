@@ -6,7 +6,7 @@ class Footer extends Component {
     
    return (
     
-    <footer  className="d-flex justify-content-between fixed-bottom">
+    <footer  className="d-flex justify-content-between fixed-bottom text-white">
                 
         <div><a id="logo" className="navbar-brand" href="/">Coordin8</a> © 2019 All rights reserved.</div>
     

@@ -1,37 +1,46 @@
 import React, { Component }  from 'react';
 import './Home.css';
 import AnchorLink from 'react-anchor-link-smooth-scroll'
-
+import VideoCover from 'react-video-cover'
 
 class App extends Component {
   render(){
+	
 	  
     return (
       <div>
-		  {/* <div id="hero" className="test"><div className="hero-area"><video autoPlay="true" loop="true" muted="" className="hero-video"><source src="/assets/video/hero-video.mp4" type="video/mp4"/></video></div></div> */}
-      	
-			<section className="masthead text-center d-flex">
+      	<div style={{
+				objectFit: 'cover',
+				width: '100%',
+				height: '100%',
+				position: 'absolute',
+				
+			
+			}}>
+			<VideoCover autoPlay muted videoOptions={{src: 'assets/video/hero-video.mp4', autoPlay:'true', muted:'true'}} />
+			</div>
+		  <section className="masthead text-center d-flex">
             <div className="container my-auto">
-            <div className="row">
-              <div className="col-lg-10 mx-auto">
-              <h1 className="text-main">Coordin8</h1>
-              <hr/>
-              </div>
-              <div className="col-lg-8 mx-auto text-white">
-              <p className="text-faded mb-5">Finally an app to keep the party going!</p>
-              <AnchorLink className="down-arrow js-scroll-trigger mx-auto" href="#about">Learn More</AnchorLink>
-              </div>
-            </div>
+				<div className="row">
+				<div className="col-lg-10 mx-auto">
+				<h1 className="text-main">Coordin8</h1>
+				<hr/>
+				</div>
+				<div className="col-lg-8 mx-auto text-white">
+				<p className="text-faded mb-5">Finally an app to keep the party going!</p>
+				<AnchorLink offset='100' className="down-arrow js-scroll-trigger mx-auto" href="#about">Learn More</AnchorLink>
+				</div>
+				</div>
             </div>
           </section> 
 
-		  <section id="about" className="marketing-text large-space">
+		  <section id="about" className="marketing-text py-5">
 				<div className="container-fluid large-space">
-					<div className="row featurette large-space">
+					<div className="row featurette large-space text-white">
 					  <div className="col-md-7 px-5 my-auto">
 					  <h2 className="featurette-heading">What is <span className="text-main">Coordin8</span></h2>
 						<p className="lead">Party planning app that is the central hub to set an itinerary, provide event locations and communicate directly with your attendees. </p>
-						<AnchorLink className="btn btn-lg btn-outline-dark rounded-pill" href="#how" role="button">HOW?</AnchorLink>
+						<AnchorLink offset='100' className="btn btn-lg btn-outline-light rounded-pill" href="#how" role="button">HOW?</AnchorLink>
 					  </div>
 					  <div className="col-md-5 p-0">
 						<img className="featurette-image img-fluid mx-auto img-responsive" src="assets/mock-ups.png" alt="Kid with thumb up - image"/>
@@ -40,7 +49,7 @@ class App extends Component {
 				</div>	
 			</section>
 
-          <section id="how" className="marketing-text large-space">
+          <section id="how" className="marketing-text py-5">
 				<div className="container-fluid large-space">
 					<div className="row large-space text-center">
 					  <div className="col-md-3 p-0 banners lights  shadow">

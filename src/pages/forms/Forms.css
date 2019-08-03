@@ -22,24 +22,6 @@
   background-color: rgba(34,47,62, 0.7) !important;
 }
 
-/* ---------------------------------------------------
-     Branding
-     $bride: #ED4C67;
-      $bride-alt: #ff6b6b;
-      $groom: #0abde3;
-      $groom-alt: #48dbfb;
-      $joint: #341f97;
-      $joint-alt: #5f27cd;
-      $main: #5758BB; 
-      $dark: #341f97;
-
------------------------------------------------------ */
-.navbar-brand {
-  color: #FFF;
-  font-size: 2em;
-	font-family: 'Shrikhand', cursive;
-	z-index: 9999;
-}
 
 h1, h4, h5 {
   padding: .5em 0 ;
@@ -63,6 +45,7 @@ p {
   text-transform: uppercase;
   white-space: normal;
 }
+
 .submit-item {
   margin: 2%;
 }
@@ -91,10 +74,10 @@ p {
   
 }
 
-input[type=text] {
+input[type=text], input[type=email] {
   background: transparent;
   border: 1px solid #FFF;
-  margin: 2%;
+  margin-bottom: .5rem;
   padding: .5em 1em;
   color: #FFF;
   text-align: center;

@@ -21,8 +21,8 @@ class PartyName extends Component {
 
         return(
             <div>
-              <p>PartyBride Form - Current state is {values.name}</p>
-              <Container maxWidth="md">
+            
+            
                   <div id="paper" className="container p-5 text-center shadow-lg"> 
                         <h1>What do you want to call your party?</h1>
                         <input
@@ -73,7 +73,7 @@ class PartyName extends Component {
                     <br/>
                     
                     
-                </Container>
+              
             </div>
         );
     }

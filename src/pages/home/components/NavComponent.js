@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-
+import AnchorLink from 'react-anchor-link-smooth-scroll';
+import { Link } from "react-router-dom";
 
 class Nav extends Component {
     constructor(props) {
@@ -26,10 +27,10 @@ class Nav extends Component {
         <div id="sidebar" className={boxClass.join(' ')}>
             <a className="navbar-brand" href="/">Coordin8</a>	
             <ul className="list-unstyled components">
-                <li><a href="#" className="text-white">About Coordin8</a></li>
-                <li><a href="#" className="text-white">Get Started</a></li>
-                <li><a href="#" className="text-white">How You Ask?</a> </li>
-                <li><a href="#" className="text-white">Contact</a></li>
+                <li><a href="#" className="text-white"  onClick={this.toggle.bind(this)}>About Coordin8</a></li>
+                <li><Link to="/signup" href="#" className="text-white" onClick={this.toggle.bind(this)}>Get Started</Link></li>
+                <li><AnchorLink href="#how" className="text-white"  onClick={this.toggle.bind(this)}>How You Ask?</AnchorLink></li>
+                <li><a href="#" className="text-white"  onClick={this.toggle.bind(this)}>Contact</a></li>
             </ul>
 
             <ul className="list-unstyled CTAs">

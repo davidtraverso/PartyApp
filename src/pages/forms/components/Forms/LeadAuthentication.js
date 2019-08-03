@@ -42,8 +42,7 @@ class LeadAuthentication extends Component {
 
     return (
       <div>
-        <p>LeadAuthentication Form</p>
-        <Container maxWidth="md">
+
           <div id="paper" className="container p-5 text-center shadow-lg">
             <h1>{values.uName}, let's create your account and start party planning!</h1>
 
@@ -93,7 +92,7 @@ class LeadAuthentication extends Component {
               onClick={this.back}
             />
           </div>
-        </Container>
+
       </div>
     );
   }

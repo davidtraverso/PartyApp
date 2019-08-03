@@ -22,8 +22,8 @@ class Dashboard extends Component {
           <Nav />
           <Header />
 
-          <div className="py-5">
-              <div className="container"> 
+          <div className="p-5">
+              <div className="container-fluid"> 
                  <Switch>
                     <Route exact={true} path="/dash" component={Home} />
                     <Route exact path="/account" component={Account} />

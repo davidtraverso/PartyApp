@@ -11,13 +11,13 @@ class MainPage extends Component {
     render() {
      return (
       <div>
-         <div id="hero"></div>
+      
         <Login /> 
         <Nav />
-        
         <Header />
         <Main />
         <Footer />
+        
       </div>
     
      );

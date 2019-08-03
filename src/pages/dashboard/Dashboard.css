@@ -1,23 +1,14 @@
-body {
-  background: #2c2c54;
-  color: #FFF
-}
-.app {
-  background: url(/assets/shapes.png) bottom right no-repeat;
-}
-h1 {
-  color: #FFF;
-}
+
+/* .app {
+  /* background: url(/assets/shapes.png) fixed bottom right no-repeat;
+} */ */
 
 h5 {
   color: #ff9f43;
   padding-bottom: 1em;
 }
 
-.navbar-brand {
-  color: #FFF !important;
-  z-index: 800;
-}
+
 .module {
   background: #40407a;
   border-radius: .3em;

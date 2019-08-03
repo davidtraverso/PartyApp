@@ -28,12 +28,12 @@ class Nav extends Component {
       	<div id="sidebar" className={boxClass.join(' ')}>
             <a className="navbar-brand" href="/">Coordin8</a>	
             <ul className="list-unstyled components">
-                  <li><Link className="text-white" to="/">Dashboard</Link></li>
-                  <li><Link className="text-white" to="/account">My Account</Link></li>
-                  <li><Link className="text-white" to="/itinerary">Itinerary</Link></li>
-                  <li><Link className="text-white" to="/attendees">Attendees</Link></li>
-                  <li><Link className="text-white" to="/locations">Locations</Link></li>
-                  <li><Link className="text-white" to="/messages">Messages</Link></li>
+                  <li><Link onClick={this.toggle.bind(this)} className="text-white" to="/dash">Dashboard</Link></li>
+                  <li><Link onClick={this.toggle.bind(this)} className="text-white" to="/account">My Account</Link></li>
+                  <li><Link onClick={this.toggle.bind(this)} className="text-white" to="/itinerary">Itinerary</Link></li>
+                  <li><Link onClick={this.toggle.bind(this)}className="text-white" to="/attendees">Attendees</Link></li>
+                  <li><Link onClick={this.toggle.bind(this)} className="text-white" to="/locations">Locations</Link></li>
+                  <li><Link onClick={this.toggle.bind(this)} className="text-white" to="/messages">Messages</Link></li>
                 </ul>
         </div>
         <div className={overClass.join(' ')}></div>

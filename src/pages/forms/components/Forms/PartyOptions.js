@@ -18,8 +18,7 @@ class PartyOptions extends Component {
         const {startDate, ...restOfState} = values;
         return(
             <div>
-              <p>PartyOptions Form</p>
-                <Container maxWidth="sm">
+              
                     <div id="paper" className="container text-center">
                       <Container maxWidth="sm">
                         {Object.entries(restOfState).map( v => (
@@ -38,7 +37,7 @@ class PartyOptions extends Component {
                       value="Continue"
                       onClick={this.continue}
                     />
-                </Container>
+              
             </div>
         );
     }

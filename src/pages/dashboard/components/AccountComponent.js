@@ -118,7 +118,7 @@ class Account extends Component {
               <h5>Account Login Information</h5>
 
               <div className="form-group row ">
-                <label className="col-sm-2 col-form-label">Email</label>
+                <label className="col-sm-2 col-form-label">Email:</label>
                 <div className="col-sm-6">
                   <input type="text" name="email" defaultValue={this.state.email} disabled className="form-control" />
                 </div>
