@@ -12,9 +12,8 @@ class PartyType extends Component {
         
         return(
             <div>
-              <p>PartyType Form - PartyType current state is {values.type}</p>
+              
 
-                <Container maxWidth="md">
                   <div id="paper" className="container p-5 text-center shadow-lg">  
                       <h1>What type of party are you planning?</h1>
 
@@ -46,7 +45,7 @@ class PartyType extends Component {
                     />
                     </div>
                     
-                </Container>
+               
             </div>
         );
     }

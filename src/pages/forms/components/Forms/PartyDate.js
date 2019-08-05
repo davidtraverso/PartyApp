@@ -40,10 +40,7 @@ class PartyDate extends Component {
 
         return(
             <div>
-              <p>PartyDate Form - Start Date: {d.getMonth()}/{d.getDate()}/{d.getFullYear()} </p>
               
-              <p>Current state of 'month': {values.month}</p>
-              <Container maxWidth="md">
                   <div id="paper" className="container p-5 text-center shadow-lg"> 
                        
                             <h1>When is it going down?</h1>
@@ -59,9 +56,9 @@ class PartyDate extends Component {
                             </p>
                             
                                 
-                                    {months.map(month => (
-                                    <GridListTile key={month} cols={1}>
-                                        <input className="btn btn-outline-light submit-item rounded-0"
+                                    {months.map((month, index) => (
+                                    <GridListTile key={index} cols={1}>
+                                        <input name={index} className="btn btn-outline-light submit-item rounded-0"
                                          type="button"
                                          value={month}
                                          onClick={handleChange('month')} />
@@ -69,23 +66,22 @@ class PartyDate extends Component {
                                     ))}
                                 
                          {/* Navigation Buttons */}
-                    <input className="w-25 btn btn-lg btn-outline-light submit-item rounded-0"
-                      type="button"
-                      label="Back"
-                      value="Back"
-                      onClick={this.back}
-                    />
-                    <input className="w-25 btn btn-lg btn-outline-light submit-item rounded-0"
-                      type="button"
-                      label="Continue"
-                      value="Continue"
-                      onClick={this.continue}
-                    />   
+                         <div>
+                          <input className="w-25 btn btn-lg btn-outline-light submit-item rounded-0"
+                            type="button"
+                            label="Back"
+                            value="Back"
+                            onClick={this.back}
+                          />
+                          <input className="w-25 btn btn-lg btn-outline-light submit-item rounded-0"
+                            type="button"
+                            label="Continue"
+                            value="Continue"
+                            onClick={this.continue}
+                          />   
+                          </div>
                     </div>
-                   
-                    
-                    
-                </Container>
+  
             </div>
         );
     }

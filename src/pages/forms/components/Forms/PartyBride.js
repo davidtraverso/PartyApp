@@ -33,8 +33,7 @@ class PartyBride extends Component {
 
         return(
             <div>
-              <p>PartyBride Form - The bride state is: {values.bride}</p>
-              <Container maxWidth="md">
+   
                   <div id="paper" className="container p-5 text-center shadow-lg">  
                         <h1>What is the name of the {this.personType(values.type)}?</h1>
                         <input
@@ -61,9 +60,7 @@ class PartyBride extends Component {
                             onClick={this.continue}
                             />
                     </div>
-            
-                    
-                </Container>
+
             </div>
         );
     }

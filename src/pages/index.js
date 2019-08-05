@@ -11,16 +11,13 @@ class MainPage extends Component {
     render() {
      return (
       <div>
-         <div id="hero"></div>
+      
         <Login /> 
         <Nav />
-        <button type="button" id="sidebarCollapse" className="btn btn-link">
-            <i className="fas fa-bars"></i>
-        </button>
-        <div class="overlay"></div>
         <Header />
         <Main />
         <Footer />
+        
       </div>
     
      );
