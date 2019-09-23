@@ -53,7 +53,7 @@ app.get('/', (req, res) => res.send('Hello World!'));
 /* *** DASHBOARD ROUTES *** */
 // GET for main landing page
 app.get('/app/main', (req, res) => {
-  let userEmail = req.body.user || 'david@yahoo.com';
+  let userEmail = req.body.user || 'jason@gmail.com';
   console.log(`req.user: ${userEmail}`);
 
   // Test userEmail
@@ -64,6 +64,7 @@ app.get('/app/main', (req, res) => {
   p.party_name as "partyName", 
   p.party_type as "partyType",
   CONCAT(l.city,', ', l.state) as "partyLocation",
+  p.start_date as "partyDate",
   t.users_id as "userID",
   u.first_name as "firstName",
   u.last_name as "lastName",
@@ -240,6 +241,42 @@ FROM events e
 
     // Send status and response
     res.status(200).send(successResponse);
+  });
+});
+
+app.post('/app/itinerary', function(req, res) {
+  let data = req.body;
+  // Test data
+  console.log(`Post data: ${data}`);
+
+  let query = `INSERT into EVENTS (
+    id,
+    event_name,
+    event_date,
+    event_start,
+    issecret,
+    parties_id,
+    event_location_id
+) values (
+    default,
+    $$${data[1]}$$,
+    $$${data[2]}$$,
+    $$${data[3]}$$,
+    false,
+    100,
+    106
+);`;
+  //  Test query
+  console.log(query);
+
+  // Run query
+  client.query(query, function(err, party) {
+    if (err) {
+      console.log('Error: ', err);
+      res.status(400).send({ code: 1239, message: 'Insert Error: ' + err });
+    }
+    console.log(party);
+    res.status(201).send('Successful addition of: ' + data.name);
   });
 });
 
