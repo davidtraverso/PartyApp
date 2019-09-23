@@ -12,8 +12,12 @@
     "react-dom": "^16.8.6",
     "react-geosuggest": "^2.12.0",
     "react-router-dom": "^5.0.1",
+<<<<<<< HEAD
+    "react-scripts": "^3.0.1"
+=======
     "react-scripts": "^3.0.1",
     "react-video-cover": "^1.2.2"
+>>>>>>> f8e755273d02f5778dc1b9d1211a99a9bba5c600
   },
   "scripts": {
     "start": "react-scripts start",

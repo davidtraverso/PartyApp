@@ -16,7 +16,7 @@ class PartyName extends Component {
     render() {
         const {values, handleChange, handleButton} = this.props;
         
-        
+        // write the code here
 
 
         return(
@@ -38,19 +38,19 @@ class PartyName extends Component {
                           <input className="btn btn-outline-light input-item pink"
                            type="button" 
                            value="Suggestion Test"
-                           name="Suggestion1"
+                           name="La soirée"
                            onClick={handleButton('name')}
                           />
                           <input className="btn btn-outline-light input-item blue"
                            type="button"
                            value="Suggestion Test"
-                           name="Suggestion2"
+                           name="Tiempo de fiesta"
                            onClick={handleButton('name')}
                           />
                           <input className="btn btn-outline-light input-item neutral"
                            type="button"
                            value="Suggestion Test"
-                           name="Suggestion3"
+                           name="Extravaganza Spectacular!"
                            onClick={handleButton('name')}
                           />
                         </Container>
