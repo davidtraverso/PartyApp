@@ -94,3 +94,4 @@ typings/
 .cmd
 .sql
 .pgsql
+db/
