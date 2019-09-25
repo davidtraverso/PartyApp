@@ -350,6 +350,21 @@ app.post('/create', function(req, res) {
   });
 });
 
+/* *** FIND Party ROUTES *** */
+app.get('/find', (req, res) => {
+  let query = `SELECT * FROM parties`;
+
+  // Run query
+  client.query(query, function(err, parties) {
+    if (err) {
+      console.log('Error: ', err);
+      res.status(400).send({ code: 1239, message: 'Insert Error: ' + err });
+    }
+    console.log(JSON.stringify(parties.rows));
+    res.status(200).send(JSON.stringify(parties.rows));
+  });
+});
+
 /* *** Static site Login *** */
 app.post('/login', (req, res, next) => {
   passport.authenticate('local', {
