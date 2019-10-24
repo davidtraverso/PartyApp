@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+// import New Party Creation forms
 import PartyType from './Forms/PartyType';
 import PartyBride from './Forms/PartyBride';
 import PartyName from './Forms/PartyName';
@@ -8,12 +9,15 @@ import LeadDetails from './Forms/LeadDetails';
 import LeadAuthentication from './Forms/LeadAuthentication';
 import PartyOptions from './Forms/PartyOptions';
 import PartyInvite from './Forms/PartyInvite';
+// import New User + Party Join forms
+import Landing from './Forms/Landing';
+import FindParty from './Forms/FindParty';
 
 class NewLead extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      step: 1,
+      step: 0,
       type: '',
       name: '',
       bride: '',
@@ -39,6 +43,7 @@ class NewLead extends Component {
     this.handleChange = this.handleChange.bind(this);
     this.handleDate = this.handleDate.bind(this);
     this.handleButton = this.handleButton.bind(this);
+    this.joinParty = this.joinParty.bind(this);
   }
 
   // Proceed to next step
@@ -77,6 +82,13 @@ class NewLead extends Component {
   handleButton = input => event => {
     this.setState({
       [input]: event.target.name
+    });
+  };
+
+  // Send state from 0 to 10 for Join Party
+  joinParty = () => {
+    this.setState({
+      step: 10
     });
   };
 
@@ -123,9 +135,27 @@ class NewLead extends Component {
     };
 
     // Switch tree to render each form
+    // Cases 1-7 are NEW PARTY creation.
+    // Cases 10+ are NEW USER + PARTY JOIN forms.
     switch (step) {
+      case 0:
+        return (
+          <Landing
+            nextStep={this.nextStep}
+            joinParty={this.joinParty}
+            handleChange={this.handleChange}
+            values={values}
+          />
+        );
       case 1:
-        return <PartyType nextStep={this.nextStep} handleChange={this.handleChange} values={values} />;
+        return (
+          <PartyType
+            nextStep={this.nextStep}
+            prevStep={this.prevStep}
+            handleChange={this.handleChange}
+            values={values}
+          />
+        );
       case 2:
         return (
           <PartyBride
@@ -164,7 +194,6 @@ class NewLead extends Component {
             values={values}
           />
         );
-
       case 6:
         return (
           <LeadDetails
@@ -194,6 +223,8 @@ class NewLead extends Component {
         );
       case 9:
         return <PartyInvite prevStep={this.prevStep} />;
+      case 10:
+        return <FindParty />;
     }
   }
 }
