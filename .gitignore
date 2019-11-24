@@ -96,4 +96,4 @@ typings/
 .pgsql
 
 # My config:
-config/
+backend/config/

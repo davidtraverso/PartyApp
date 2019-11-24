@@ -15,7 +15,7 @@ var cors = require('cors');
 app.use(cors());
 
 // Database connection moved to Lines 1-19 in ./config/db.js
-const client = require('./config/db');
+const client = require('./config/elephantsql.js');
 
 // console.log('client.query is ', client.query)
 
@@ -244,6 +244,7 @@ FROM events e
   });
 });
 
+// POST for Itinerary
 app.post('/app/itinerary', function(req, res) {
   let data = req.body;
   // Test data
