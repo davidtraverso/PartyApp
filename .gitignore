@@ -94,4 +94,6 @@ typings/
 .cmd
 .sql
 .pgsql
-db/
+
+# My config:
+config/
